@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include "minilibx-linux/mlx.h"
+#include "mlx.h"
 
 typedef struct so_long
 {
@@ -14,8 +14,10 @@ typedef struct so_long
     int     width;
     int     height;
     void    *back_img;
-    void    *box_img;
-    void    *hero_img;
+    void    *wall_img;
+    void    *player_img;
+    void    *img1_img;
+    void    *door_img;
     int     moves;
 }   t_stack;
 

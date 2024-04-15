@@ -35,10 +35,10 @@ char**    read_map(char *path, t_stack *game)
         empty_string = ft_strjoin(get_empty_s, line);
         count++;
     }
-    game->height = count*16;
+    game->height = count*32;
     map = ft_split(empty_string, '\n');
     j = 0;
     while (map[0][j++])
-    game->width = j*16;
+    game->width = j*32;
     return map;
 }

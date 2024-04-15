@@ -34,20 +34,20 @@ void    update_map(int key, t_stack *game)
 
 void    key_d(t_stack *game)
 {
-    update_map("D", game);
+    update_map('D', game);
 }
 
 void    key_s(t_stack *game)
 {
-    update_map("S", game);
+    update_map('S', game);
 }
 
 void    key_a(t_stack *game)
 {
-    update_map("A", game);
+    update_map('A', game);
 }
 
 void    key_w(t_stack *game)
 {
-    update_map("W", game);
+    update_map('W', game);
 }

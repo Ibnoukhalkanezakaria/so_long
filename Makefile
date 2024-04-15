@@ -6,7 +6,7 @@ ft_printf = ft_printf/ft_putchar.c ft_printf/ft_printf_s.c ft_printf/ft_printf_d
 
 all: so_long
 
-so_long: main.c play.c read_map.c get_next_line/*.c libft/ft_strdup.c libft/ft_strlen.c libft/ft_split.c create_window.c
+so_long: main.c play.c read_map.c get_next_line/*.c libft/ft_strdup.c libft/ft_strlen.c libft/ft_split.c create_window.c update_map.c
 	$(CC) $(CFLAGS) $^ $(ft_printf) -o $@ $(LIBS)
 
 clean:
