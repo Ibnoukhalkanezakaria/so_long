@@ -15,13 +15,13 @@
 void    update_map(int key, t_stack *game)
 {
     if(key == 'd')
-        mlx_xpm_file_to_image(game->mlx, "images/PD.xpm", &game->width, &game->height);
+        mlx_xpm_file_to_image(game->mlx, "images/player2-l.xpm", &game->width, &game->height);
     else if(key == 's')
-        mlx_xpm_file_to_image(game->mlx, "images/PA.xpm", &game->width, &game->height);
+        mlx_xpm_file_to_image(game->mlx, "images/player2.xpm" , &game->width, &game->height);
     else if(key == 'a')
-        mlx_xpm_file_to_image(game->mlx, "images/PA.xpm", &game->width, &game->height);
+        mlx_xpm_file_to_image(game->mlx, "images/player2.xpm", &game->width, &game->height);
     else if(key == 'w')
-        mlx_xpm_file_to_image(game->mlx, "images/PD.xpm", &game->width, &game->height);
+        mlx_xpm_file_to_image(game->mlx, "images/player2-l.xpm ", &game->width, &game->height);
 }
 
 void    key_d(t_stack *game)

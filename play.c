@@ -39,7 +39,7 @@ void    get_events(int key, t_stack *game)
 int ft_moves(int key, t_stack *game)
 {
     get_events(key, game);
-    // ft_printf("%d   Moves :  %d        Key:  %c\n", game->y_play, game->moves++, (char)key);
+    ft_printf("Moves:  %d\n", game->moves++);
 }
 
 void    play(t_stack *game)

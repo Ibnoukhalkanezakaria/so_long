@@ -14,7 +14,7 @@
 
 void	draw_img(t_stack *game, void *image, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, image, x*32, y*32);
+	mlx_put_image_to_window(game->mlx, game->win, image, x*64, y*64);
 }
 
 static void	draw_the_player(t_stack *game, void *image, int x, int y)
@@ -26,8 +26,8 @@ static void	draw_the_player(t_stack *game, void *image, int x, int y)
 
 static void	exit_draw(t_stack *game, int x, int y)
 {
-    if(game->num == 0)
-        game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/1.xpm", &game->width, &game->height);
+    // if(game->num == 0)
+    game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/E1.xpm", &game->width, &game->height);
     draw_img(game, game->exit_img , x, y);
 }
 
@@ -50,8 +50,8 @@ int	map_draw(t_stack *game)
 				draw_the_player(game, game->player_img, x, y);
 			else if (game->map[y][x] == 'C')
 				draw_img(game, game->img1_img, x, y);
-			// else if (game->map[y][x] == 'E')
-				// exit_draw(game, x, y);
+			else if (game->map[y][x] == 'E')
+				exit_draw(game, x, y);
 				// draw_img(game, game->img1_img, x, y);
 			// else
 			// 	return 0;

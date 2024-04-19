@@ -14,22 +14,22 @@
 
 void    put_images(t_stack *game)
 {
-    game->wall_img = mlx_xpm_file_to_image(game->mlx, "images/1.xpm", &game->width, &game->height);
-    game->back_img = mlx_xpm_file_to_image(game->mlx, "images/block.xpm", &game->width, &game->height);
-    game->player_img = mlx_xpm_file_to_image(game->mlx, "images/idle_00.xpm", &game->width, &game->height);  
-    game->img1_img = mlx_xpm_file_to_image(game->mlx, "images/uiHeart_off01.xpm", &game->width, &game->height); 
-    game->door_img = mlx_xpm_file_to_image(game->mlx, "images/E1.xpm", &game->width, &game->height); 
+    game->wall_img = mlx_xpm_file_to_image(game->mlx, "images/wall.xpm", &game->width, &game->height);
+    game->back_img = mlx_xpm_file_to_image(game->mlx, "images/back2.xpm", &game->width, &game->height);
+    game->player_img = mlx_xpm_file_to_image(game->mlx, "images/player2-l.xpm", &game->width, &game->height);  
+    game->img1_img = mlx_xpm_file_to_image(game->mlx, "images/star2.xpm", &game->width, &game->height); 
+    game->door_img = mlx_xpm_file_to_image(game->mlx, "images/wall.xpm", &game->width, &game->height); 
 }
 
 static void	size_window(t_stack *game)
 {
 	int	i;
 
-	game->map_width = ft_strlen(game->map[0]) * 32;
+	game->map_width = ft_strlen(game->map[0]) * 64;
 	i = 0;
 	while (game->map[i])
 		i++;
-	game->map_height = i * 32;
+	game->map_height = i * 64;
 }
 
 void    create_window(t_stack *game)
