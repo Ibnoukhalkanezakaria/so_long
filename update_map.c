@@ -14,40 +14,94 @@
 
 void    update_map(int key, t_stack *game)
 {
-    if(key == 'D')
-    {
+    if(key == 'd')
         mlx_xpm_file_to_image(game->mlx, "images/PD.xpm", &game->width, &game->height);
-    }
-    else if(key == 'S')
-    {
+    else if(key == 's')
         mlx_xpm_file_to_image(game->mlx, "images/PA.xpm", &game->width, &game->height);
-    }
-    else if(key == 'A')
-    {
+    else if(key == 'a')
         mlx_xpm_file_to_image(game->mlx, "images/PA.xpm", &game->width, &game->height);
-    }
-    else if(key == 'W')
-    {
+    else if(key == 'w')
         mlx_xpm_file_to_image(game->mlx, "images/PD.xpm", &game->width, &game->height);
-    }
 }
 
 void    key_d(t_stack *game)
 {
-    update_map('D', game);
+    update_map('d', game);
+    if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	{
+		game->map[game->y_play][game->x_play - 1] = '0';
+		map_draw(game);
+	}
+	else if (game->map[game->y_play][game->x_play] == '1'
+			|| game->map[game->y_play][game->x_play] == 'E')
+		game->x_play -= 1;
+	else
+	{
+		if (game->map[game->y_play][game->x_play] == 'C')
+			game->num -= 1;
+		game->map[game->y_play][game->x_play] = 'P';
+		game->map[game->y_play][game->x_play - 1] = '0';
+		map_draw(game);
+	}
 }
 
 void    key_s(t_stack *game)
 {
-    update_map('S', game);
+    update_map('s', game);
+	if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	{
+		game->map[game->y_play - 1][game->x_play] = '0';
+		map_draw(game);
+	}
+	else if (game->map[game->y_play][game->x_play] == '1'
+			|| game->map[game->y_play][game->x_play] == 'E')
+		game->y_play -= 1;
+	else
+	{
+		if (game->map[game->y_play][game->x_play] == 'C')
+			game->num -= 1;
+		game->map[game->y_play][game->x_play] = 'P';
+		game->map[game->y_play - 1][game->x_play] = '0';
+		map_draw(game);
+	}
 }
 
 void    key_a(t_stack *game)
 {
-    update_map('A', game);
+    update_map('a', game);
+    if (game->map[game->y_play][game->x_play] == 'E' && game->num)
+	{
+		game->map[game->y_play][game->x_play + 1] = '0';
+		map_draw(game);
+	}
+	else if (game->map[game->y_play][game->x_play] == '1'
+			|| game->map[game->y_play][game->x_play] == 'E')
+		game->x_play += 1;
+	else
+	{
+		game->map[game->y_play][game->x_play] = 'P';
+		game->map[game->y_play][game->x_play + 1] = '0';
+		map_draw(game);
+	}
 }
 
 void    key_w(t_stack *game)
 {
-    update_map('W', game);
+    update_map('w', game);
+    if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	{
+		game->map[game->y_play + 1][game->x_play] = '0';
+		map_draw(game);
+	}
+	else if (game->map[game->y_play][game->x_play] == '1'
+			|| game->map[game->y_play][game->x_play] == 'E')
+		game->y_play += 1;
+	else
+	{
+		if (game->map[game->y_play][game->x_play] == 'C')
+			game->num -= 1;
+		game->map[game->y_play][game->x_play] = 'P';
+		game->map[game->y_play + 1][game->x_play] = '0';
+		map_draw(game);
+	}
 }

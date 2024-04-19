@@ -15,9 +15,10 @@
 int main(int ac, char **av)
 {
     t_stack game;
+    int num  = 0;
     if(ac == 2)
     {
-        game.map = read_map(av[1], &game);
+        game.map = read_map(av[1]);
         create_window(&game);
         play(&game);
         mlx_loop(game.mlx);
