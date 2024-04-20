@@ -18,7 +18,7 @@ void    put_images(t_stack *game)
     game->back_img = mlx_xpm_file_to_image(game->mlx, "images/back2.xpm", &game->width, &game->height);
     game->player_img = mlx_xpm_file_to_image(game->mlx, "images/player2.xpm", &game->width, &game->height);  
     game->img1_img = mlx_xpm_file_to_image(game->mlx, "images/star2.xpm", &game->width, &game->height); 
-    game->door_img = mlx_xpm_file_to_image(game->mlx, "images/door.xpm", &game->width, &game->height); 
+    // game->door_img = mlx_xpm_file_to_image(game->mlx, "images/wall.xpm", &game->width, &game->height); 
 }
 
 static void	size_window(t_stack *game)

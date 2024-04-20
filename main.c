@@ -23,4 +23,5 @@ int main(int ac, char **av)
         play(&game);
         mlx_loop(game.mlx);
     }
+    return 0;
 }

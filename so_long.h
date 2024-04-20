@@ -25,6 +25,7 @@ typedef struct so_long
     int     y_play;
     int     x_play;
     int     num;
+    int     the_stars;
     void    *exit_img;
 }   t_stack;
 
