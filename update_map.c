@@ -23,13 +23,15 @@ void    update_map(char key, t_stack *game)
 void    key_a(t_stack *game)
 {
     update_map('a', game);
-    if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	if((game->y_play == 5 && game->x_play == 8) && game->the_stars == 0)
+		exit(0);
+    else if ((game->map[game->y_play][game->x_play]) && game->num == 0)
 	{
 		game->map[game->y_play][game->x_play + 1] = '0';
 		map_draw(game);
 	}
-	else if (game->map[game->y_play][game->x_play] == '1'
-			|| game->map[game->y_play][game->x_play] == 'E')
+	else if (game->map[game->y_play][game->x_play] == '1' 
+	|| game->map[game->y_play][game->x_play] == 'E')
 		game->x_play += 1;
 	else
 	{
@@ -37,12 +39,18 @@ void    key_a(t_stack *game)
 		game->map[game->y_play][game->x_play + 1] = '0';
 		map_draw(game);
 	}
+	printf(" game->y_play: %d\n", game->y_play);
+	printf(" game->x_play: %d\n", game->x_play);
+	printf("%s\n", "===================================:");
 }
-
+// // x = 7 - 1
+// // y = 5
 void    key_d(t_stack *game)
 {
     update_map('d', game);
-    if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	if((game->y_play == 5 && game->x_play == 8) && game->the_stars == 0)
+		exit(0);
+    else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
 		game->map[game->y_play][game->x_play - 1] = '0';
 		map_draw(game);
@@ -52,18 +60,20 @@ void    key_d(t_stack *game)
 		game->x_play -= 1;
 	else
 	{
-		if (game->map[game->y_play][game->x_play] == 'C')
-			game->num -= 1;
 		game->map[game->y_play][game->x_play] = 'P';
 		game->map[game->y_play][game->x_play - 1] = '0';
 		map_draw(game);
 	}
+	printf(" game->y_play: %d\n", game->y_play);
+	printf(" game->x_play: %d\n", game->x_play);
+	printf("%s\n", "===================================:");
 }
 
 void    key_s(t_stack *game)
 {
-    update_map('s', game);
-	if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	if((game->y_play == 5 && game->x_play == 8) && game->the_stars == 0)
+		exit(0); 
+    else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
 		game->map[game->y_play - 1][game->x_play] = '0';
 		map_draw(game);
@@ -73,18 +83,20 @@ void    key_s(t_stack *game)
 		game->y_play -= 1;
 	else
 	{
-		if (game->map[game->y_play][game->x_play] == 'C')
-			game->num -= 1;
 		game->map[game->y_play][game->x_play] = 'P';
 		game->map[game->y_play - 1][game->x_play] = '0';
 		map_draw(game);
 	}
+	printf(" game->y_play: %d\n", game->y_play);
+	printf(" game->x_play: %d\n", game->x_play);
+	printf("%s\n", "===================================:");
 }
 
 void    key_w(t_stack *game)
 {
-    update_map('w', game);
-    if (game->map[game->y_play][game->x_play] == 'E')
+	if((game->y_play == 5 && game->x_play == 8) && game->the_stars == 0)
+		exit(0);
+    else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
 		game->map[game->y_play + 1][game->x_play] = '0';
 		map_draw(game);
@@ -94,10 +106,11 @@ void    key_w(t_stack *game)
 		game->y_play += 1;
 	else
 	{
-		if (game->map[game->y_play][game->x_play] == 'C')
-			game->num -= 1;
 		game->map[game->y_play][game->x_play] = 'P';
 		game->map[game->y_play + 1][game->x_play] = '0';
 		map_draw(game);
 	}
+	printf(" game->y_play: %d\n", game->y_play);
+	printf(" game->x_play: %d\n", game->x_play);
+	printf("%s\n", "===================================:");
 }

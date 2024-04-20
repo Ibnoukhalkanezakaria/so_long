@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <stdbool.h>
 #include "mlx.h"
 
 typedef struct so_long
@@ -25,6 +26,7 @@ typedef struct so_long
     int     y_play;
     int     x_play;
     int     num;
+    bool    check;
     int     the_stars;
     void    *exit_img;
 }   t_stack;
@@ -50,5 +52,6 @@ void    key_w(t_stack *game);
 void    update_map(char key, t_stack *game);
 void    get_events(int key, t_stack *game);
 int	map_draw(t_stack *game);
+
 
 #endif
