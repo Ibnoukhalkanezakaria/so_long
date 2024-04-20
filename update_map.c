@@ -12,26 +12,29 @@
 
 #include "so_long.h"
 
-void    update_map(char key, t_stack *game)
+void	update_map(char key, t_stack *game)
 {
-    if(key == 'd')
-		game->player_img = mlx_xpm_file_to_image(game->mlx, "images/player2.xpm", &game->width, &game->height);
-    else if(key == 'a')
-		game->player_img = mlx_xpm_file_to_image(game->mlx, "images/player2-l.xpm", &game->width, &game->height);
+	if (key == 'd')
+		game->player_img = mlx_xpm_file_to_image(game->mlx,
+				"images/player2.xpm", &game->width, &game->height);
+	else if (key == 'a')
+		game->player_img = mlx_xpm_file_to_image(game->mlx,
+				"images/player2-l.xpm", &game->width, &game->height);
 }
 
-void    key_a(t_stack *game)
+void	key_a(t_stack *game)
 {
-    update_map('a', game);
-	if((game->y_play == game->x_door && game->x_play == game->y_door) && game->the_stars == 0)
-		exit(0);
-    else if ((game->map[game->y_play][game->x_play]) && game->num == 0)
+	update_map('a', game);
+	if ((game->y_play == game->x_door && game->x_play == game->y_door)
+		&& game->the_stars == 0)
+		exit_the_game(game);
+	else if ((game->map[game->y_play][game->x_play]) && game->num == 0)
 	{
 		game->map[game->y_play][game->x_play + 1] = '0';
 		map_draw(game);
 	}
-	else if (game->map[game->y_play][game->x_play] == '1' 
-	|| game->map[game->y_play][game->x_play] == 'E')
+	else if (game->map[game->y_play][game->x_play] == '1'
+		|| game->map[game->y_play][game->x_play] == 'E')
 		game->x_play += 1;
 	else
 	{
@@ -45,18 +48,19 @@ void    key_a(t_stack *game)
 }
 // // x = 7 - 1
 // // y = 5
-void    key_d(t_stack *game)
+void	key_d(t_stack *game)
 {
-    update_map('d', game);
-	if((game->y_play == game->x_door && game->x_play == game->y_door) && game->the_stars == 0)
-		exit(0);
-    else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	update_map('d', game);
+	if ((game->y_play == game->x_door && game->x_play == game->y_door)
+		&& game->the_stars == 0)
+		exit_the_game(game);
+	else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
 		game->map[game->y_play][game->x_play - 1] = '0';
 		map_draw(game);
 	}
 	else if (game->map[game->y_play][game->x_play] == '1'
-			|| game->map[game->y_play][game->x_play] == 'E')
+		|| game->map[game->y_play][game->x_play] == 'E')
 		game->x_play -= 1;
 	else
 	{
@@ -69,17 +73,18 @@ void    key_d(t_stack *game)
 	// printf("%s\n", "===================================:");
 }
 
-void    key_s(t_stack *game)
+void	key_s(t_stack *game)
 {
-	if((game->y_play == game->x_door && game->x_play == game->y_door) && game->the_stars == 0)
-		exit(0); 
-    else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	if ((game->y_play == game->x_door && game->x_play == game->y_door)
+		&& game->the_stars == 0)
+		exit_the_game(game);
+	else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
 		game->map[game->y_play - 1][game->x_play] = '0';
 		map_draw(game);
 	}
 	else if (game->map[game->y_play][game->x_play] == '1'
-			|| game->map[game->y_play][game->x_play] == 'E')
+		|| game->map[game->y_play][game->x_play] == 'E')
 		game->y_play -= 1;
 	else
 	{
@@ -92,17 +97,18 @@ void    key_s(t_stack *game)
 	// printf("%s\n", "===================================:");
 }
 
-void    key_w(t_stack *game)
+void	key_w(t_stack *game)
 {
-	if((game->y_play == game->x_door && game->x_play == game->y_door) && game->the_stars == 0)
-		exit(0);
-    else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
+	if ((game->y_play == game->x_door && game->x_play == game->y_door)
+		&& game->the_stars == 0)
+		exit_the_game(game);
+	else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
 		game->map[game->y_play + 1][game->x_play] = '0';
 		map_draw(game);
 	}
 	else if (game->map[game->y_play][game->x_play] == '1'
-			|| game->map[game->y_play][game->x_play] == 'E')
+		|| game->map[game->y_play][game->x_play] == 'E')
 		game->y_play += 1;
 	else
 	{

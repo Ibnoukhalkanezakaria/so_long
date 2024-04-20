@@ -12,25 +12,24 @@
 
 #include "so_long.h"
 
-char**    read_map(char *path)
+char	**read_map(char *path)
 {
-    int fd;
-    char *line;
-    char *empty_string;
-    char **map;
-    char *get_empty_s;
+	int		fd;
+	char	*line;
+	char	*empty_string;
+	char	**map;
+	char	*get_empty_s;
 
-    fd = open(path, O_RDONLY);
-    
-    empty_string = ft_strdup("");
-    while (1)
-    {
-        line = get_next_line(fd);
-        if(!line)
-            break;
-        get_empty_s = empty_string;
-        empty_string = ft_strjoin(get_empty_s, line);
-    }
-    map = ft_split(empty_string, '\n');
-    return map;
+	fd = open(path, O_RDONLY);
+	empty_string = ft_strdup("");
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		get_empty_s = empty_string;
+		empty_string = ft_strjoin(get_empty_s, line);
+	}
+	map = ft_split(empty_string, '\n');
+	return (map);
 }

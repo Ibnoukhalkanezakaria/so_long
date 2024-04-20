@@ -12,37 +12,30 @@
 
 #include "so_long.h"
 
-void	get_events(int key, t_stack *game)
+void	free_map(char **map)
 {
-	if (key == KEY_D)
+	int	i;
+
+	i = 0;
+	while (map[i])
 	{
-		game->x_play += 1;
-		key_d(game);
+		free(map[i]);
+		i++;
 	}
-	else if (key == KEY_S)
-	{
-		game->y_play += 1;
-		key_s(game);
-	}
-	else if (key == KEY_A)
-	{
-		game->x_play -= 1;
-		key_a(game);
-	}
-	else if (key == KEY_W)
-	{
-		game->y_play -= 1;
-		key_w(game);
-	}
+	free(map);
 }
 
-int	ft_moves(int key, t_stack *game)
+void	exit_the_game(t_stack *game)
 {
-	get_events(key, game);
-	ft_printf("Moves:  %d\n", game->moves++);
-}
-
-void	play(t_stack *game)
-{
-	mlx_hook(game->win, 02, 1L << 0, ft_moves, game);
+	// free_map(game->map);
+	// mlx_destroy_image(game->mlx, game->back_img);
+	// mlx_destroy_image(game->mlx, game->exit_img);
+	// mlx_destroy_image(game->mlx, game->player_img);
+	// mlx_destroy_image(game->mlx, game->img1_img);
+	// mlx_destroy_image(game->mlx, game->wall_img);
+	// mlx_destroy_window(game->mlx, game->win);
+	// mlx_destroy_display(game->mlx);
+	// free(game->mlx);
+	exit(0);
+	return ;
 }

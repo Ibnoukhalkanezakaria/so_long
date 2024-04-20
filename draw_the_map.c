@@ -14,29 +14,32 @@
 
 void	draw_img(t_stack *game, void *image, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, image, x*64, y*64);
+	mlx_put_image_to_window(game->mlx, game->win, image, x * 64, y * 64);
 }
 
 static void	draw_the_player(t_stack *game, void *image, int x, int y)
 {
 	game->y_play = y;
-    game->x_play = x; 
-    draw_img(game, image , x, y);
+	game->x_play = x;
+	draw_img(game, image, x, y);
 }
 
 void	sum_the_stars(t_stack *game)
 {
-	int i = 0;
-	int count = 0;
-	int j;
+	int	i;
+	int	count;
+	int	j;
+
+	i = 0;
+	count = 0;
 	while (game->map[i])
 	{
 		j = 0;
 		while (game->map[i][j])
 		{
-			if(game->map[i][j] == 'C')
+			if (game->map[i][j] == 'C')
 				count++;
-			else if(game->map[i][j] == 'E')
+			else if (game->map[i][j] == 'E')
 			{
 				game->x_door = i;
 				game->y_door = j;
@@ -50,11 +53,13 @@ void	sum_the_stars(t_stack *game)
 
 static void	exit_draw(t_stack *game, int x, int y)
 {
-    if(game->the_stars == 0)
-		game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/door.xpm", &game->width, &game->height);
+	if (game->the_stars == 0)
+		game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/door.xpm",
+				&game->width, &game->height);
 	else
-		game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/door3.xpm", &game->width, &game->height);
-    draw_img(game, game->exit_img , x, y);
+		game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/door3.xpm",
+				&game->width, &game->height);
+	draw_img(game, game->exit_img, x, y);
 }
 
 int	map_draw(t_stack *game)

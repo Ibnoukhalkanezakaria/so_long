@@ -54,6 +54,8 @@ void    key_w(t_stack *game);
 void    update_map(char key, t_stack *game);
 void    get_events(int key, t_stack *game);
 int	map_draw(t_stack *game);
+void    exit_the_game(t_stack *game);
+void    free_map(char   **map);
 
 
 #endif
