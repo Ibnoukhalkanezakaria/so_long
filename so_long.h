@@ -25,6 +25,8 @@ typedef struct so_long
     int     end;
     int     y_play;
     int     x_play;
+    int     x_door;
+    int     y_door;
     int     num;
     bool    check;
     int     the_stars;

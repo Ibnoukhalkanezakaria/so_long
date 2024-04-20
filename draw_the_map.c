@@ -36,6 +36,11 @@ void	sum_the_stars(t_stack *game)
 		{
 			if(game->map[i][j] == 'C')
 				count++;
+			else if(game->map[i][j] == 'E')
+			{
+				game->x_door = i;
+				game->y_door = j;
+			}
 			j++;
 		}
 		i++;
