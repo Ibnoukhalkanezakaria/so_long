@@ -12,25 +12,43 @@
 
 #include "../so_long.h"
 
-int    count_lines(t_stack *game)
+void    f(t_stack *game)
 {
-    int i = 0;
-    int count = 0;
-    int size = ft_strlen(game->map[0]);
+    int i;
+    int j;
+    int count;
+    bool check = true;
+
+    i = 0;
+    count = 0;
+    j = 0;
     while (game->map[i])
     {
-        if(ft_strlen(game->map[i]) != size)
-            count++;
+        // if(game->map[i] == "111111111111111111111" && check )
+        // {
+            // count++;
+        // }
+        // ft_printf("%s\n", game->map[i]);
+        // j = 0;
+        // while (game->map[i][j])
+        // {
+        //     // if(game->map[i][j])
+        //     // {
+        //     //     count++;
+        //     // }
+        //     ft_printf("%c", game->map[i][j]);
+        //     j++;
+        // }
+        
         i++;
     }
-    return count;
+    // ft_printf("i: %d\n", i);
+    // ft_printf("count: %d\n", count);
 }
 
-int    map_checker_three(t_stack *game)
+int    map_checker_four(t_stack *game)
 {
-    int count = count_lines(game);
-    if(count > 0)
-        return 0;
-    return 1;
+    // ft_printf("%d", 546643435);
+    f(game);
+    return 0;
 }
-

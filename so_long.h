@@ -33,6 +33,7 @@ typedef struct so_long
     int     player_ele;
     int     door_ele;
     int     the_stars;
+    int     empty_num;
     void    *exit_img;
 }   t_stack;
 
@@ -62,5 +63,7 @@ static void    free_map(char   **map);
 int    map_checker(t_stack *game);
 int    map_checker_two(t_stack *game);
 int    map_checker_three(t_stack *game);
+int    map_checker_four(t_stack *game);
+int	get_empty_line(char *path, int length);
 
 #endif
