@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	put_images(t_stack *game)
+static void	put_images(t_stack *game)
 {
 	game->wall_img = mlx_xpm_file_to_image(game->mlx, "images/wall.xpm",
 			&game->width, &game->height);

@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	update_map(char key, t_stack *game)
+static void	update_map(char key, t_stack *game)
 {
 	if (key == 'd')
 		game->player_img = mlx_xpm_file_to_image(game->mlx,

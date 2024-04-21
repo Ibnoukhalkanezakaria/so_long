@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	draw_img(t_stack *game, void *image, int x, int y)
+static void	draw_img(t_stack *game, void *image, int x, int y)
 {
 	mlx_put_image_to_window(game->mlx, game->win, image, x * 64, y * 64);
 }
@@ -24,7 +24,7 @@ static void	draw_the_player(t_stack *game, void *image, int x, int y)
 	draw_img(game, image, x, y);
 }
 
-void	sum_the_stars(t_stack *game)
+static void	sum_the_stars(t_stack *game)
 {
 	int	i;
 	int	count;

@@ -1,6 +1,7 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -29,6 +30,8 @@ typedef struct so_long
     int     y_door;
     int     num;
     bool    check;
+    int     player_ele;
+    int     door_ele;
     int     the_stars;
     void    *exit_img;
 }   t_stack;
@@ -51,11 +54,13 @@ void    key_d(t_stack *game);
 void    key_s(t_stack *game);
 void    key_a(t_stack *game);
 void    key_w(t_stack *game);
-void    update_map(char key, t_stack *game);
-void    get_events(int key, t_stack *game);
+static void    update_map(char key, t_stack *game);
+static void	get_events(int key, t_stack *game);
 int	map_draw(t_stack *game);
 void    exit_the_game(t_stack *game);
-void    free_map(char   **map);
-
+static void    free_map(char   **map);
+int    map_checker(t_stack *game);
+int    map_checker_two(t_stack *game);
+int    map_checker_three(t_stack *game);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	get_events(int key, t_stack *game)
+static void	get_events(int key, t_stack *game)
 {
 	if (key == KEY_D)
 	{
@@ -36,7 +36,7 @@ void	get_events(int key, t_stack *game)
 	}
 }
 
-int	ft_moves(int key, t_stack *game)
+static int	ft_moves(int key, t_stack *game)
 {
 	get_events(key, game);
 	ft_printf("Moves:  %d\n", game->moves++);
