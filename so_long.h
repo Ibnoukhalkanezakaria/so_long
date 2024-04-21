@@ -46,6 +46,9 @@ typedef struct so_long
 	// int		door_ele;
 	int		the_stars;
 	int		empty_num;
+	int collect_found;
+	int total_collect;
+	int 	**visited;
 	void	*exit_img;
 }			t_stack;
 
@@ -76,5 +79,6 @@ int			map_checker(t_stack *game);
 int			map_checker_two(t_stack *game);
 int			map_checker_three(t_stack *game);
 int			get_empty_line(char *path);
+int    map_checker_four(t_stack *game);
 
 #endif

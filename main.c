@@ -16,20 +16,20 @@ int	main(int ac, char **av)
 {
 	t_stack	game;
 	int		empty_line;
-
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
 		empty_line = get_empty_line(av[1]);
-		if ((map_checker(&game)) && (map_checker_two(&game)
-				&& (map_checker_three(&game)) && (empty_line)))
-		{
-			create_window(&game);
-			play(&game);
-			mlx_loop(game.mlx);
-		}
-		else
-			ft_printf("%s\n", "Map is invalid!");
+		map_checker_four(&game);
+		// if ((map_checker(&game)) && (map_checker_two(&game)
+		// 		&& (map_checker_three(&game)) && (empty_line)))
+		// {
+		// 	create_window(&game);
+		// 	play(&game);
+		// 	mlx_loop(game.mlx);
+		// }
+		// else
+		// 	ft_printf("%s\n", "Map is invalid!");
 	}
 	else
 		ft_printf("%s\n", "Error");
