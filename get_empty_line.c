@@ -12,30 +12,35 @@
 
 #include "so_long.h"
 
-int	get_empty_line(char *path, int length)
+int	get_empty_line(char *path)
 {
-	(void)length;
 	int		fd;
 	char	*line;
 	int		count;
-    
+	int		empty;
+	bool	check;
+	int		result;
+	int		tmp;
+
+	empty = 0;
+	check = true;
+	result = 0;
 	count = 1;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		return (0);
-
 	while ((line = get_next_line(fd)))
 	{
-		// if(ft_strlen(line) < length || ft_strlen(line) == 1)
-		// 	return 0;
-		// if(ft_strlen(line) == 1)
-		// {
-		// 	count++;
-		// }
-		// if(line == "\0")
-		// {
-			printf("%s", line);
-		// }
+		if (check)
+		{
+			result = ft_strlen(line);
+			check = false;
+		}
+		tmp = ft_strlen(line);
+		empty = tmp;
+		tmp = empty;
 	}
-	return count;
+	if (result == empty)
+		return (0);
+	return (1);
 }
