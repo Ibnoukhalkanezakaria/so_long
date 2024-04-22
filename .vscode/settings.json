@@ -59,6 +59,7 @@
   "files.associations": {
     "so_long.h": "c",
     "stdio.h": "c",
-    "mlx.h": "c"
+    "mlx.h": "c",
+    "mlx_int.h": "c"
   }
 }

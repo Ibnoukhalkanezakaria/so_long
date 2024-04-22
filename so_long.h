@@ -56,6 +56,7 @@ typedef struct so_long
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define KEY_Q 113
 
 char		**ft_split(char const *s, char c);
 size_t		ft_strlen(const char *s);
@@ -79,6 +80,6 @@ int			map_checker(t_stack *game);
 int			map_checker_two(t_stack *game);
 int			map_checker_three(t_stack *game);
 int			get_empty_line(char *path);
-int    map_checker_four(t_stack *game);
+int some_checkers(t_stack *game);
 
 #endif

@@ -34,15 +34,25 @@ static void	get_events(int key, t_stack *game)
 		game->y_play -= 1;
 		key_w(game);
 	}
+	else if(key == KEY_Q)
+		exit_the_game(game);
 }
+
 
 static int	ft_moves(int key, t_stack *game)
 {
 	get_events(key, game);
 	ft_printf("Moves:  %d\n", game->moves++);
+	return 0;
+}
+static int	close_win(int key, t_stack *game)
+{
+	exit_the_game(0);
+	return 0;
 }
 
 void	play(t_stack *game)
 {
 	mlx_hook(game->win, 02, 1L << 0, ft_moves, game);
+	mlx_hook(game->win, 17, 0, close_win, game);
 }

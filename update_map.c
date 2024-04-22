@@ -12,6 +12,14 @@
 
 #include "so_long.h"
 
+static void get_empty(char key, t_stack *game)
+{
+	if(key == 'a')
+	{
+		return;
+	}
+}
+
 static void	update_map(char key, t_stack *game)
 {
 	if (key == 'd')
@@ -25,6 +33,7 @@ static void	update_map(char key, t_stack *game)
 void	key_a(t_stack *game)
 {
 	update_map('a', game);
+	// get_empty('a', game);
 	if ((game->y_play == game->x_door && game->x_play == game->y_door)
 		&& game->the_stars == 0)
 		exit_the_game(game);
@@ -44,7 +53,8 @@ void	key_a(t_stack *game)
 	}
 	// printf(" game->y_play: %d\n", game->y_play);
 	// printf(" game->x_play: %d\n", game->x_play);
-	// printf("%s\n", "===================================:");
+	// printf(" C: %c\n", game->map[game->y_play][game->x_play]);
+	// printf("%s\n", "==================a=================:");
 }
 // // x = 7 - 1
 // // y = 5
@@ -70,7 +80,8 @@ void	key_d(t_stack *game)
 	}
 	// printf(" game->y_play: %d\n", game->y_play);
 	// printf(" game->x_play: %d\n", game->x_play);
-	// printf("%s\n", "===================================:");
+	// printf(" C: %c\n", game->map[game->y_play][game->x_play]);
+	// printf("%s\n", "===================d================:");
 }
 
 void	key_s(t_stack *game)
@@ -94,7 +105,8 @@ void	key_s(t_stack *game)
 	}
 	// printf(" game->y_play: %d\n", game->y_play);
 	// printf(" game->x_play: %d\n", game->x_play);
-	// printf("%s\n", "===================================:");
+	// printf(" C: %c\n", game->map[game->y_play][game->x_play]);
+	// printf("%s\n", "=================s==================:");
 }
 
 void	key_w(t_stack *game)
@@ -118,5 +130,6 @@ void	key_w(t_stack *game)
 	}
 	// printf(" game->y_play: %d\n", game->y_play);
 	// printf(" game->x_play: %d\n", game->x_play);
-	// printf("%s\n", "===================================:");
+	// printf(" C: %c\n", game->map[game->y_play][game->x_play]);
+	// printf("%s\n", "==================w=================:");
 }
