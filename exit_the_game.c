@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static void	free_map(char **map)
+void	free_map(char **map)
 {
 	int	i;
 
@@ -25,17 +25,17 @@ static void	free_map(char **map)
 	free(map);
 }
 
-void	exit_the_game(t_stack *game)
+int	exit_the_game(t_stack *game)
 {
-	// free_map(game->map);
-	// mlx_destroy_image(game->mlx, game->back_img);
-	// mlx_destroy_image(game->mlx, game->exit_img);
-	// mlx_destroy_image(game->mlx, game->player_img);
-	// mlx_destroy_image(game->mlx, game->img1_img);
-	// mlx_destroy_image(game->mlx, game->wall_img);
-	// mlx_destroy_window(game->mlx, game->win);
-	// mlx_destroy_display(game->mlx);
-	// free(game->mlx);
+	free_map(game->map);
+	mlx_destroy_image(game->mlx, game->back_img);
+	mlx_destroy_image(game->mlx, game->wall_img);
+	mlx_destroy_image(game->mlx, game->player_img);
+	mlx_destroy_image(game->mlx, game->img1_img);
+	mlx_destroy_image(game->mlx, game->exit_img);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
 	exit(0);
-	return ;
+	return (0);
 }

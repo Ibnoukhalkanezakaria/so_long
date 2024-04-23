@@ -20,14 +20,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_coin
-{
-	int x;
-	int y;
-	int claimed;
-	void	*next;
-}	t_coin;
-
 typedef struct so_long
 {
 	void	*mlx;
@@ -48,19 +40,19 @@ typedef struct so_long
 	int		x_play;
 	int		x_door;
 	int		y_door;
-	int		x;
-	int		y;
+	// int		x;
+	// int		y;
 	int		num;
 	int		max_w;
 	int 	max_h;
-	bool	check;
+	// bool	check;
 	int		the_stars;
 	int		empty_num;
 	int		collect_found;
-	int		total_collect;
+	// int		total_collect;
 	int **visited;
 	void	*exit_img;
-	t_coin	*coins;
+	// t_coin	*coins;
 }			t_stack;
 
 # define KEY_W 119
@@ -78,19 +70,18 @@ void		create_window(t_stack *game);
 char		**read_map(char *path);
 void		play(t_stack *game);
 int			ft_printf(const char *format, ...);
-void		key_d(t_stack *game);
-void		key_s(t_stack *game);
-void		key_a(t_stack *game);
-void		key_w(t_stack *game);
-static void	update_map(char key, t_stack *game);
+// void		key_d(t_stack *game);
+// void		key_s(t_stack *game);
+// void		key_a(t_stack *game);
+// void		key_w(t_stack *game);
+// static void	update_map(char key, t_stack *game);
 static void	get_events(int key, t_stack *game);
 int			map_draw(t_stack *game);
-void		exit_the_game(t_stack *game);
+int	exit_the_game(t_stack *game);
 static void	free_map(char **map);
 int			map_checker(t_stack *game);
 int			map_checker_two(t_stack *game);
 int			map_checker_three(t_stack *game);
-t_coin*    stack(t_stack *game, int csize);
 void    map_checker_four(t_stack *game, int x, int y);
 int			get_empty_line(char *path);
 int sum_c(t_stack *game);
@@ -98,5 +89,6 @@ int    get_w(t_stack *game);
 int    get_h(t_stack *game);
 int	semu_y(t_stack	*game);
 int	semu_x(t_stack	*game);
+void	free_map(char **map);
 
 #endif
