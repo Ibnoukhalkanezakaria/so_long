@@ -25,6 +25,7 @@ typedef struct s_coin
 	int x;
 	int y;
 	int claimed;
+	void	*next;
 }	t_coin;
 
 typedef struct so_long
@@ -47,6 +48,8 @@ typedef struct so_long
 	int		x_play;
 	int		x_door;
 	int		y_door;
+	int		x;
+	int		y;
 	int		num;
 	int		max_w;
 	int 	max_h;
@@ -55,6 +58,7 @@ typedef struct so_long
 	int		empty_num;
 	int		collect_found;
 	int		total_collect;
+	int **visited;
 	void	*exit_img;
 	t_coin	*coins;
 }			t_stack;
@@ -87,9 +91,12 @@ int			map_checker(t_stack *game);
 int			map_checker_two(t_stack *game);
 int			map_checker_three(t_stack *game);
 t_coin*    stack(t_stack *game, int csize);
-void    map_checker_four(t_stack *game, int x, int y, int csize);
+void    map_checker_four(t_stack *game, int x, int y);
 int			get_empty_line(char *path);
-int    get_x_y(t_stack *game);
 int sum_c(t_stack *game);
+int    get_w(t_stack *game);
+int    get_h(t_stack *game);
+int	semu_y(t_stack	*game);
+int	semu_x(t_stack	*game);
 
 #endif
