@@ -87,7 +87,7 @@ int			map_checker(t_stack *game);
 int			map_checker_two(t_stack *game);
 int			map_checker_three(t_stack *game);
 t_coin*    stack(t_stack *game, int csize);
-void map_checker_four(t_stack *game, int x, int y, int csize);
+void    map_checker_four(t_stack *game, int x, int y, int csize);
 int			get_empty_line(char *path);
 int    get_x_y(t_stack *game);
 int sum_c(t_stack *game);

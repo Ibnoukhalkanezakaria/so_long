@@ -70,21 +70,22 @@ void    map_checker_four(t_stack *game, int x, int y, int csize)
     int i = 0;
 
     i = 0;
-    if (x > game->max_w || x < 0 || y > game->max_h || y < 0)
-        return;
-    if (game->map[x][y] == '-')
-        return;
-    if (game->map[x][y] == '1')
-        return;
+    // if (x > game->max_w || x < 0 || y > game->max_h || y < 0)
+        // return;
+    // if (game->map[x][y] == '-')
+        // return;
+    // if (game->map[x][y] == '1')
+        // return;
     if (game->map[x][y] == 'C')
     {
         while (i < csize)
         {
-            if (game->coins[i].x == x && game->coins[i].y == y)
-            {
-                game->coins[i].claimed = 1;
-                break;
-            }
+            // if (game->coins[i].x == x && game->coins[i].y == y)
+            // {
+            //     game->coins[i].claimed = 1;
+            //     break;
+            // }
+            ft_printf("%d\n", i);
             i++;
         }  
     }
@@ -93,4 +94,5 @@ void    map_checker_four(t_stack *game, int x, int y, int csize)
     map_checker_four(game, x - 1, y, csize);  // Move left
     map_checker_four(game, x, y + 1, csize);  // Move down
     map_checker_four(game, x, y - 1, csize);  // Move up
+    ft_printf("%s\n", "map_checker_four");
 }

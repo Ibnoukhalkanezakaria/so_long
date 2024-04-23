@@ -45,12 +45,12 @@ int	main(int ac, char **av)
 		empty_line = get_empty_line(av[1]);
 		game.coins = stack(&game, sum_c(&game));
 		map_checker_four(&game, game.x_play, game.y_play , csize);
-		i = 0;
-		while (i < csize)
-		{
-			ft_printf("\n - N%i\n - position [%i,%i]\n - claimed %s\n", i, game.coins->x, game.coins->y, game.coins->claimed ? "yes" : "no");
-			i++;
-		}
+		// i = 0;
+		// while (i < csize)
+		// {
+		// 	ft_printf("\n - N%i\n - position [%i,%i]\n - claimed %s\n", i, game.coins->x, game.coins->y, game.coins->claimed ? "yes" : "no");
+		// 	i++;
+		// }
 		
 		// if ((map_checker(&game)) && (map_checker_two(&game)
 		// 		&& (map_checker_three(&game)) && (empty_line)))
