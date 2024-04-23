@@ -12,14 +12,6 @@
 
 #include "so_long.h"
 
-static void get_empty(char key, t_stack *game)
-{
-	if(key == 'a')
-	{
-		return;
-	}
-}
-
 static void	update_map(char key, t_stack *game)
 {
 	if (key == 'd')
@@ -33,12 +25,12 @@ static void	update_map(char key, t_stack *game)
 void	key_a(t_stack *game)
 {
 	update_map('a', game);
-	// get_empty('a', game);
 	if ((game->y_play == game->x_door && game->x_play == game->y_door)
 		&& game->the_stars == 0)
 		exit_the_game(game);
 	else if ((game->map[game->y_play][game->x_play]) && game->num == 0)
 	{
+		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_play][game->x_play + 1] = '0';
 		map_draw(game);
 	}
@@ -47,6 +39,7 @@ void	key_a(t_stack *game)
 		game->x_play += 1;
 	else
 	{
+		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_play][game->x_play] = 'P';
 		game->map[game->y_play][game->x_play + 1] = '0';
 		map_draw(game);
@@ -56,8 +49,7 @@ void	key_a(t_stack *game)
 	// printf(" C: %c\n", game->map[game->y_play][game->x_play]);
 	// printf("%s\n", "==================a=================:");
 }
-// // x = 7 - 1
-// // y = 5
+
 void	key_d(t_stack *game)
 {
 	update_map('d', game);
@@ -66,6 +58,7 @@ void	key_d(t_stack *game)
 		exit_the_game(game);
 	else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
+		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_play][game->x_play - 1] = '0';
 		map_draw(game);
 	}
@@ -74,6 +67,7 @@ void	key_d(t_stack *game)
 		game->x_play -= 1;
 	else
 	{
+		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_play][game->x_play] = 'P';
 		game->map[game->y_play][game->x_play - 1] = '0';
 		map_draw(game);
@@ -91,6 +85,7 @@ void	key_s(t_stack *game)
 		exit_the_game(game);
 	else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
+		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_play - 1][game->x_play] = '0';
 		map_draw(game);
 	}
@@ -99,6 +94,7 @@ void	key_s(t_stack *game)
 		game->y_play -= 1;
 	else
 	{
+		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_play][game->x_play] = 'P';
 		game->map[game->y_play - 1][game->x_play] = '0';
 		map_draw(game);
@@ -116,6 +112,7 @@ void	key_w(t_stack *game)
 		exit_the_game(game);
 	else if (game->map[game->y_play][game->x_play] == 'E' && game->num == 0)
 	{
+		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_play + 1][game->x_play] = '0';
 		map_draw(game);
 	}
@@ -124,6 +121,7 @@ void	key_w(t_stack *game)
 		game->y_play += 1;
 	else
 	{
+		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_play][game->x_play] = 'P';
 		game->map[game->y_play + 1][game->x_play] = '0';
 		map_draw(game);

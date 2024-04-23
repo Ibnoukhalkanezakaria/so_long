@@ -21,6 +21,8 @@ char	**read_map(char *path)
 	char	*get_empty_s;
 
 	fd = open(path, O_RDONLY);
+	if(fd == -1)
+		return NULL;
 	empty_string = ft_strdup("");
 	while (1)
 	{

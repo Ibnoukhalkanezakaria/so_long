@@ -1,0 +1,30 @@
+void    flood_fill(t_stack *game, int csize, int x, int y)
+{
+    int    i;
+
+    // printf("%i, %i\n", x, y);
+    i = 0;
+    if (x > 20 || x < 0 || y > 20 || y < 0)
+        return;
+    if (map[x][y] == -1)
+        return;
+    if (map[x][y] == 1)
+        return;
+    if (map[x][y] == 4)
+    {
+        while (i < csize)
+        {
+            if (coins[i].x == x && coins[i].y == y)
+            {
+                coins[i].claimed = 1;
+                break;
+            }
+            i++;
+        }     
+    }
+    map[x][y] = -1;
+    flood_fill(game, csize, x + 1, y);  // Move right
+    flood_fill(game, csize, x - 1, y);  // Move left
+    flood_fill(game, csize, x, y + 1);  // Move down
+    flood_fill(game, csize, x, y - 1);  // Move up
+}

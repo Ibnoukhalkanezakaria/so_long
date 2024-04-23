@@ -20,6 +20,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef struct s_coin
+{
+	int x;
+	int y;
+	int claimed;
+}	t_coin;
+
 typedef struct so_long
 {
 	void	*mlx;
@@ -41,15 +48,15 @@ typedef struct so_long
 	int		x_door;
 	int		y_door;
 	int		num;
+	int		max_w;
+	int 	max_h;
 	bool	check;
-	// int		player_ele;
-	// int		door_ele;
 	int		the_stars;
 	int		empty_num;
-	int collect_found;
-	int total_collect;
-	int 	**visited;
+	int		collect_found;
+	int		total_collect;
 	void	*exit_img;
+	t_coin	*coins;
 }			t_stack;
 
 # define KEY_W 119
@@ -79,7 +86,10 @@ static void	free_map(char **map);
 int			map_checker(t_stack *game);
 int			map_checker_two(t_stack *game);
 int			map_checker_three(t_stack *game);
+t_coin*    stack(t_stack *game, int csize);
+void map_checker_four(t_stack *game, int x, int y, int csize);
 int			get_empty_line(char *path);
-int some_checkers(t_stack *game);
+int    get_x_y(t_stack *game);
+int sum_c(t_stack *game);
 
 #endif

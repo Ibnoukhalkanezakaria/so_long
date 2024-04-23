@@ -15,6 +15,7 @@
 static void	draw_img(t_stack *game, void *image, int x, int y)
 {
 	mlx_put_image_to_window(game->mlx, game->win, image, x * 64, y * 64);
+	// mlx_destroy_image(image);
 }
 
 static void	draw_the_player(t_stack *game, void *image, int x, int y)
