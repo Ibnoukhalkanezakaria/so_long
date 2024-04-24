@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int	semu_x(t_stack *game)
+static int	semu_x(t_stack *game)
 {
 	int	i;
 	int	j;
@@ -36,7 +36,7 @@ int	semu_x(t_stack *game)
 	return (x);
 }
 
-int	semu_y(t_stack *game)
+static int	semu_y(t_stack *game)
 {
 	int	i;
 	int	j;
@@ -71,7 +71,7 @@ static void	size_window_two(t_stack *game)
 	game->maph = i * 64;
 }
 
-void delete(t_stack *game)
+void delete (t_stack *game)
 {
 	int	x;
 	int	y;

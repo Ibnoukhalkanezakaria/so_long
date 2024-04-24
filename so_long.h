@@ -40,23 +40,18 @@ typedef struct so_long
 	int		x_play;
 	int		x_door;
 	int		y_door;
-	// int		x;
-	// int		y;
 	int		num;
 	int		max_w;
-	int 	max_h;
+	int		max_h;
 	int		mapw;
 	int		maph;
-	// bool	check;
 	int		the_stars;
 	int		empty_num;
 	int		collect_found;
-	// int		total_collect;
-	int **visited;
+	int		**visited;
 	void	*exit_img;
-	// t_coin	*coins;
-	int	yy;
-	int xx;
+	int		yy;
+	int		xx;
 }			t_stack;
 
 # define KEY_W 119
@@ -81,18 +76,18 @@ void		key_w(t_stack *game);
 static void	update_map(char key, t_stack *game);
 static void	get_events(int key, t_stack *game);
 int			map_draw(t_stack *game);
-int	exit_the_game(t_stack *game);
+int			exit_the_game(t_stack *game);
 static void	free_map(char **map);
 int			map_checker(t_stack *game);
 int			map_checker_two(t_stack *game);
 int			map_checker_three(t_stack *game);
-void    map_checker_four(t_stack *game, int x, int y);
-int    get_w(t_stack *game);
-int    get_h(t_stack *game);
-int	semu_y(t_stack	*game);
-int	semu_x(t_stack	*game);
-void	free_map(char **map);
-int     check_all(t_stack *game, int x, int y);
-void    delete(t_stack *game);
+void		map_checker_four(t_stack *game, int x, int y);
+int			get_w(t_stack *game);
+int			get_h(t_stack *game);
+int			semu_y(t_stack *game);
+int			semu_x(t_stack *game);
+void		free_map(char **map);
+int			check_all(t_stack *game, int x, int y);
+void delete (t_stack *game);
 
 #endif

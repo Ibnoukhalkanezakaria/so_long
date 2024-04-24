@@ -16,23 +16,23 @@ static void	get_events(int key, t_stack *game)
 {
 	if (key == KEY_D)
 	{
-		// game->x_play += 1;
-		// key_d(game);
+		game->x_play += 1;
+		key_d(game);
 	}
 	else if (key == KEY_S)
 	{
-		// game->y_play += 1;
-		// key_s(game);
+		game->y_play += 1;
+		key_s(game);
 	}
 	else if (key == KEY_A)
 	{
-		// game->x_play -= 1;
-		// key_a(game);
+		game->x_play -= 1;
+		key_a(game);
 	}
 	else if (key == KEY_W)
 	{
-		// game->y_play -= 1;
-		// key_w(game);
+		game->y_play -= 1;
+		key_w(game);
 	}
 	else if (key == KEY_Q)
 		exit_the_game(game);

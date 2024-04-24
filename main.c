@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int	**arr_visited(int max_h, int max_w)
+static int	**arr_visited(int max_h, int max_w)
 {
 	int	**arr;
 	int	i;
@@ -34,9 +34,9 @@ int	**arr_visited(int max_h, int max_w)
 	return (arr);
 }
 
-int	check_read_map(char **map)
+static int	check_read_map(char **map)
 {
-	if(!map)
+	if (!map)
 	{
 		ft_printf("%s\n", "Map is invalid!");
 		exit(0);
@@ -55,7 +55,7 @@ int	main(int ac, char **av)
 		delete (&game);
 		game.visited = arr_visited(game.maph, game.mapw);
 		check = check_all(&game, game.xx, game.yy);
-		if (check && game.map)
+		if (check)
 		{
 			create_window(&game);
 			play(&game);
