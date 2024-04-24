@@ -12,36 +12,39 @@
 
 #include "../so_long.h"
 
-int     get_ele(t_stack *game, char c)
+int	get_ele(t_stack *game, char c)
 {
-    int i;
-    int j;
-    int count;
+	int	i;
+	int	j;
+	int	count;
 
-    i = 0;
-    count = 0;
-    while (game->map[i])
-    {
-        j = 0;
-        while (game->map[i][j])
-        {
-            if(game->map[i][j] == c)
-                count++;
-            j++;
-        }
-        
-        i++;
-    }
-    return count;
+	i = 0;
+	count = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == c)
+				count++;
+			j++;
+		}
+		i++;
+	}
+	return (count);
 }
 
-int    map_checker(t_stack *game)
+int	map_checker(t_stack *game)
 {
-    int get_player_ele = get_ele(game, 'P');
-    int get_door_ele = get_ele(game, 'E');
-    int get_star_ele = get_ele(game, 'C');
-    if(get_player_ele == 1 && get_door_ele == 1 && get_star_ele > 1)
-        return 1;
-    else
-        return 0;
+	int	get_player_ele;
+	int	get_door_ele;
+	int	get_star_ele;
+
+	get_player_ele = get_ele(game, 'P');
+	get_door_ele = get_ele(game, 'E');
+	get_star_ele = get_ele(game, 'C');
+	if (get_player_ele == 1 && get_door_ele == 1 && get_star_ele > 1)
+		return (1);
+	else
+		return (0);
 }

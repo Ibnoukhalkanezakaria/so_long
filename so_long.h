@@ -13,7 +13,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "mlx.h"
+# include "minilibx-linux/mlx.h"
 # include <fcntl.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -50,6 +50,7 @@ typedef struct so_long
 	int		collect_found;
 	int		**visited;
 	void	*exit_img;
+	int		endgame;
 	int		yy;
 	int		xx;
 }			t_stack;
@@ -73,7 +74,7 @@ void		key_d(t_stack *game);
 void		key_s(t_stack *game);
 void		key_a(t_stack *game);
 void		key_w(t_stack *game);
-static void	update_map(char key, t_stack *game);
+static void	update_image(char key, t_stack *game);
 static void	get_events(int key, t_stack *game);
 int			map_draw(t_stack *game);
 int			exit_the_game(t_stack *game);
@@ -84,10 +85,10 @@ int			map_checker_three(t_stack *game);
 void		map_checker_four(t_stack *game, int x, int y);
 int			get_w(t_stack *game);
 int			get_h(t_stack *game);
-int			semu_y(t_stack *game);
-int			semu_x(t_stack *game);
+static int	semu_y(t_stack *game);
+static int	semu_x(t_stack *game);
 void		free_map(char **map);
 int			check_all(t_stack *game, int x, int y);
-void delete (t_stack *game);
+void		delete(t_stack *game);
 
 #endif

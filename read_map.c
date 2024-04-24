@@ -31,11 +31,7 @@ char	**read_map(char *path)
 			break ;
 		get_empty_s = empty_string;
 		empty_string = ft_strjoin(get_empty_s, line);
-		free(get_empty_s);
-		free(line);
 	}
 	map = ft_split(empty_string, '\n');
-	free(empty_string);
-	close(fd);
 	return (map);
 }

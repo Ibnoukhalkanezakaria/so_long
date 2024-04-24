@@ -12,24 +12,30 @@
 
 #include "../so_long.h"
 
-int    count_lines(t_stack *game)
+int	count_lines(t_stack *game)
 {
-    int i = 0;
-    int count = 0;
-    int size = ft_strlen(game->map[0]);
-    while (game->map[i])
-    {
-        if(ft_strlen(game->map[i]) != size)
-            count++;
-        i++;
-    }
-    return count;
+	int	i;
+	int	count;
+	int	size;
+
+	i = 0;
+	count = 0;
+	size = ft_strlen(game->map[0]);
+	while (game->map[i])
+	{
+		if (ft_strlen(game->map[i]) != size)
+			count++;
+		i++;
+	}
+	return (count);
 }
 
-int    map_checker_three(t_stack *game)
+int	map_checker_three(t_stack *game)
 {
-    int count = count_lines(game);
-    if(count > 0)
-        return 0;
-    return 1;
+	int	count;
+
+	count = count_lines(game);
+	if (count > 0)
+		return (0);
+	return (1);
 }

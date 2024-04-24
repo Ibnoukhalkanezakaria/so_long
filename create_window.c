@@ -42,7 +42,7 @@ void	create_window(t_stack *game)
 	game->win = mlx_new_window(game->mlx, game->map_width, game->map_height,
 			"Window Shopper");
 	game->moves = 0;
-	game->end = 0;
+	game->endgame = 0;
 	put_images(game);
 	map_draw(game);
 }
