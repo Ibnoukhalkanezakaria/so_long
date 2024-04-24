@@ -12,116 +12,60 @@
 
 #include "so_long.h"
 
-// int sum_c(t_stack *game)
-// {
-//     int i = 0;
-//     int j;
-//     int count = 0;
-//     while (game->map[i])
-//     {
-//         j = 0;
-//         while (game->map[i][j])
-//         {
-//             if(game->map[i][j] == 'C')
-//                 count++;
-//             j++;
-//         }
-//         i++;
-//     }
-//     return count;
-// }
+int	**arr_visited(int max_h, int max_w)
+{
+	int	**arr;
+	int	i;
+	int	j;
 
-// int	semu_x(t_stack	*game)
-// {
-// 	int i = 0;
-// 	int j;
-// 	int x = 0;
-// 	int y = 0;
-// 	while (game->map[i])
-// 	{
-// 		j = 0;
-// 		while (game->map[i][j])
-// 		{
-// 			if(game->map[i][j] == 'P')
-// 				x = i;
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	return x;
-// }
+	arr = (int **)malloc(max_h * sizeof(int *));
+	i = 0;
+	while (i < max_h)
+	{
+		arr[i] = (int *)malloc(max_w * sizeof(int));
+		j = 0;
+		while (j < max_w)
+		{
+			arr[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
+	return (arr);
+}
 
-// int	semu_y(t_stack	*game)
-// {
-// 	int i = 0;
-// 	int j;
-// 	int x = 0;
-// 	int y = 0;
-// 	while (game->map[i])
-// 	{
-// 		j = 0;
-// 		while (game->map[i][j])
-// 		{
-// 			if(game->map[i][j] == 'P')
-// 				y = j;
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	return y;
-// }
-
-// int **arr_visited(int max_h, int max_w)
-// {
-//     int **arr = (int **)malloc(max_h * sizeof(int *));
-//     int i = 0;
-//     int j;
-//     while (i < max_h) {
-//         arr[i] = (int *)malloc(max_w * sizeof(int));
-//         j = 0;
-//         while (j < max_w) {
-//             arr[i][j] = 0;
-//             j++;
-//         }
-//         i++;
-//     }
-
-//     return arr;
-// }
+int	check_read_map(char **map)
+{
+	if(!map)
+	{
+		ft_printf("%s\n", "Map is invalid!");
+		exit(0);
+	}
+}
 
 int	main(int ac, char **av)
 {
 	t_stack	game;
-	int		empty_line;
-	int	csize;
-	int	i;
-	int x;
-	int y;
-	bool count = false;
+	int		check;
 
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
-		// csize = sum_c(&game);
-		// empty_line = get_empty_line(av[1]);
-		// x = semu_x(&game);
-		// y = semu_y(&game);
-		// game.collect_found = 0;
-    	// game.visited = arr_visited(7, 21);
-		// map_checker_four(&game, x, y);
-		// if ((map_checker(&game)) && (map_checker_two(&game)
-		// 		&& (map_checker_three(&game)) && (empty_line) && (game.collect_found == csize)))
-		// {
+		check_read_map(game.map);
+		delete (&game);
+		game.visited = arr_visited(game.maph, game.mapw);
+		check = check_all(&game, game.xx, game.yy);
+		if (check && game.map)
+		{
 			create_window(&game);
-			// play(&game);
+			play(&game);
 			mlx_loop(game.mlx);
-		// }
-		// else
-		// {
-		// 	ft_printf("%s\n", "Map is invalid!");
-		// 	exit(0);
-		// }
-
+		}
+		else
+		{
+			ft_printf("%s\n", "Map is invalid!");
+			exit(0);
+		}
 	}
 	else
 		ft_printf("%s\n", "Error");

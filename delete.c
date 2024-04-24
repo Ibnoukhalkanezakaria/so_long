@@ -10,26 +10,74 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
-int    count_lines(t_stack *game)
+int	semu_x(t_stack *game)
 {
-    int i = 0;
-    int count = 0;
-    int size = ft_strlen(game->map[0]);
-    while (game->map[i])
-    {
-        if(ft_strlen(game->map[i]) != size)
-            count++;
-        i++;
-    }
-    return count;
+	int	i;
+	int	j;
+	int	x;
+	int	y;
+
+	i = 0;
+	x = 0;
+	y = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'P')
+				x = i;
+			j++;
+		}
+		i++;
+	}
+	return (x);
 }
 
-int    map_checker_three(t_stack *game)
+int	semu_y(t_stack *game)
 {
-    int count = count_lines(game);
-    if(count > 0)
-        return 0;
-    return 1;
+	int	i;
+	int	j;
+	int	x;
+	int	y;
+
+	i = 0;
+	x = 0;
+	y = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'P')
+				y = j;
+			j++;
+		}
+		i++;
+	}
+	return (y);
+}
+
+static void	size_window_two(t_stack *game)
+{
+	int	i;
+
+	game->mapw = ft_strlen(game->map[0]) * 64;
+	i = 0;
+	while (game->map[i])
+		i++;
+	game->maph = i * 64;
+}
+
+void delete(t_stack *game)
+{
+	int	x;
+	int	y;
+
+	game->xx = semu_x(game);
+	game->yy = semu_y(game);
+	game->collect_found = 0;
+	size_window_two(game);
 }

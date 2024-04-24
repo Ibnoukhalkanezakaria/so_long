@@ -6,7 +6,7 @@ ft_printf = ft_printf/ft_putchar.c ft_printf/ft_printf_s.c ft_printf/ft_printf_d
 
 all: so_long
 
-so_long: main.c play.c read_map.c get_next_line/get_next_line_utils.c get_next_line/get_next_line.c libft/ft_strdup.c libft/ft_strlen.c libft/ft_split.c create_window.c update_map.c draw_the_map.c exit_the_game.c map_checker/map_checker.c map_checker/map_checker_two.c map_checker/map_checker_three.c get_empty_line.c map_checker/map_checker_four.c
+so_long: main.c play.c read_map.c get_next_line/get_next_line_utils.c get_next_line/get_next_line.c libft/ft_strdup.c libft/ft_strlen.c libft/ft_split.c create_window.c update_map.c draw_the_map.c exit_the_game.c map_checker/map_checker.c map_checker/map_checker_two.c map_checker/map_checker_three.c  map_checker/map_check_all.c delete.c
 	$(CC) $(CFLAGS) $^ $(ft_printf) -o $@ $(LIBS)
 
 clean:

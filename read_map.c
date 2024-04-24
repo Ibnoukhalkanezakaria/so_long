@@ -21,8 +21,8 @@ char	**read_map(char *path)
 	char	*get_empty_s;
 
 	fd = open(path, O_RDONLY);
-	if(fd == -1)
-		return NULL;
+	if (fd == -1)
+		return (NULL);
 	empty_string = ft_strdup("");
 	while (1)
 	{
@@ -37,6 +37,5 @@ char	**read_map(char *path)
 	map = ft_split(empty_string, '\n');
 	// free(empty_string);
 	// close(fd);
-
 	return (map);
 }
