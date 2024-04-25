@@ -31,7 +31,9 @@ char	**read_map(char *path)
 			break ;
 		get_empty_s = empty_string;
 		empty_string = ft_strjoin(get_empty_s, line);
+		free(line);
 	}
 	map = ft_split(empty_string, '\n');
+	free(empty_string);
 	return (map);
 }

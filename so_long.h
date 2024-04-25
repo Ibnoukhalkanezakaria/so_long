@@ -16,9 +16,7 @@
 # include "minilibx-linux/mlx.h"
 # include <fcntl.h>
 # include <stdbool.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
 
 typedef struct so_long
 {
@@ -60,6 +58,8 @@ typedef struct so_long
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_Q 113
+# define KEY_ESC 65307
+# define KEY_17 17
 
 char		**ft_split(char const *s, char c);
 size_t		ft_strlen(const char *s);

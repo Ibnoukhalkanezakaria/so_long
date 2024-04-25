@@ -22,24 +22,20 @@ static void	get_events(int key, t_stack *game)
 		key_a(game);
 	else if (key == KEY_W)
 		key_w(game);
-	else if (key == KEY_Q)
+	else if (key == KEY_Q || key == KEY_ESC)
 		exit_the_game(game);
 }
 
 static int	ft_moves(int key, t_stack *game)
 {
 	get_events(key, game);
-	ft_printf("Moves:  %d\n", game->moves++);
+	if(key == KEY_D || key == KEY_A || key == KEY_W || key == KEY_S)
+		ft_printf("Moves:  %d\n", game->moves++);
 	return (0);
-}
-
-static int	close_win(int key, t_stack *game)
-{
-	exit(0);
 }
 
 void	play(t_stack *game)
 {
 	mlx_hook(game->win, 02, 1L << 0, ft_moves, game);
-	mlx_hook(game->win, 17, 0, close_win, game);
+	mlx_hook(game->win, 17, 0, exit_the_game, game);
 }

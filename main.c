@@ -19,16 +19,20 @@ static int	**arr_visited(int max_h, int max_w)
 	int	j;
 
 	arr = (int **)malloc(max_h * sizeof(int *));
+	if(!arr)
+		return NULL;
 	i = 0;
 	while (i < max_h)
 	{
 		arr[i] = (int *)malloc(max_w * sizeof(int));
+        if(!arr[i])
+            return NULL;
 		j = 0;
 		while (j < max_w)
-		{
-			arr[i][j] = 0;
-			j++;
-		}
+        {
+			arr[i][j++] = 0;
+        }
+        // free(arr[i]);
 		i++;
 	}
 	return (arr);
@@ -41,6 +45,7 @@ static int	check_read_map(char **map)
 		ft_printf("%s\n", "Map is invalid!");
 		exit(0);
 	}
+	
 }
 
 int	main(int ac, char **av)

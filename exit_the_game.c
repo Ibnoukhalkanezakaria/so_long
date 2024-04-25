@@ -18,15 +18,21 @@ static void	free_map(char **map)
 
 	i = 0;
 	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
+		free(map[i++]);
 	free(map);
+}
+
+void free_visited(t_stack *game)
+{
+	int i = 0;
+	while(i < game->maph)
+		free(game->visited[i++]);
+	free(game->visited);
 }
 
 int	exit_the_game(t_stack *game)
 {
+	free_visited(game);
 	free_map(game->map);
 	mlx_destroy_image(game->mlx, game->back_img);
 	mlx_destroy_image(game->mlx, game->wall_img);
