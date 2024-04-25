@@ -29,10 +29,7 @@ static int	**arr_visited(int max_h, int max_w)
             return NULL;
 		j = 0;
 		while (j < max_w)
-        {
 			arr[i][j++] = 0;
-        }
-        // free(arr[i]);
 		i++;
 	}
 	return (arr);
