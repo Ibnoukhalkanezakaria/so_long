@@ -29,7 +29,7 @@ static void	get_events(int key, t_stack *game)
 static int	ft_moves(int key, t_stack *game)
 {
 	get_events(key, game);
-	if(key == KEY_D || key == KEY_A || key == KEY_W || key == KEY_S)
+	if (key == KEY_D || key == KEY_A || key == KEY_W || key == KEY_S)
 		ft_printf("Moves:  %d\n", game->moves++);
 	return (0);
 }

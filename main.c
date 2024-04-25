@@ -19,14 +19,14 @@ static int	**arr_visited(int max_h, int max_w)
 	int	j;
 
 	arr = (int **)malloc(max_h * sizeof(int *));
-	if(!arr)
-		return NULL;
+	if (!arr)
+		return (NULL);
 	i = 0;
 	while (i < max_h)
 	{
 		arr[i] = (int *)malloc(max_w * sizeof(int));
-        if(!arr[i])
-            return NULL;
+		if (!arr[i])
+			return (NULL);
 		j = 0;
 		while (j < max_w)
 			arr[i][j++] = 0;
@@ -35,14 +35,27 @@ static int	**arr_visited(int max_h, int max_w)
 	return (arr);
 }
 
-static int	check_read_map(char **map)
+static void	check_sec_p(char *arr)
 {
-	if (!map)
+	int	i;
+	int	count;
+	int	size;
+
+	count = 0;
+	size = ft_strlen(arr);
+	i = size - 1;
+	while (i > 0)
+	{
+		if (arr[i] == 'r' && arr[i - 1] == 'e' && arr[i - 2] == 'b' && arr[i
+				- 3] == '.')
+			count++;
+		i--;
+	}
+	if (!count)
 	{
 		ft_printf("%s\n", "Map is invalid!");
 		exit(0);
 	}
-	
 }
 
 int	main(int ac, char **av)
@@ -53,7 +66,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
-		check_read_map(game.map);
+		check_sec_p(av[1]);
 		delete (&game);
 		game.visited = arr_visited(game.maph, game.mapw);
 		check = check_all(&game, game.xx, game.yy);

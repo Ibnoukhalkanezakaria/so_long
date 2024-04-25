@@ -22,10 +22,12 @@ static void	free_map(char **map)
 	free(map);
 }
 
-void free_visited(t_stack *game)
+static void	free_visited(t_stack *game)
 {
-	int i = 0;
-	while(i < game->maph)
+	int	i;
+
+	i = 0;
+	while (i < game->maph)
 		free(game->visited[i++]);
 	free(game->visited);
 }
