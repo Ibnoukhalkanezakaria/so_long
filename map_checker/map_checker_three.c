@@ -30,12 +30,42 @@ int	count_lines(t_stack *game)
 	return (count);
 }
 
+int	check_one(t_stack *game)
+{
+    int i;
+    int count;
+    int count2;
+
+	i = 0;
+    count = 0;
+    count2 = 0;
+	while (game->map[i])
+	{
+        int j = 0;
+        while (game->map[i][j])
+        {
+            if(game->map[i][j] == '1' 
+            || game->map[i][j] == '0' 
+            || game->map[i][j] == 'C' 
+            || game->map[i][j] == 'P'
+            || game->map[i][j] == 'E'
+            )
+                return 1;
+            j++;
+        }
+		i++;
+	}
+    return 0;
+}
+
 int	map_checker_three(t_stack *game)
 {
 	int	count;
+	int check;
 
+	check = check_one(game);
 	count = count_lines(game);
-	if (count > 0)
+	if (count > 0 && !check)
 		return (0);
 	return (1);
 }

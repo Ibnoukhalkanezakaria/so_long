@@ -35,23 +35,15 @@ static int	**arr_visited(int max_h, int max_w)
 	return (arr);
 }
 
-static void	check_sec_p(char *arr)
+static void	checking(char **map)
 {
 	int	i;
 	int	count;
-	int	size;
 
+	i = 0;
 	count = 0;
-	size = ft_strlen(arr);
-	i = size - 1;
-	while (i > 0)
-	{
-		if (arr[i] == 'r' && arr[i - 1] == 'e' && arr[i - 2] == 'b' && arr[i
-				- 3] == '.')
-			count++;
-		i--;
-	}
-	if (!count)
+	if (!map || (ft_strlen(map[0]) < 2 && (map[0][0] == 'P'
+				|| map[0][0] == 'C')))
 	{
 		ft_printf("%s\n", "Map is invalid!");
 		exit(0);
@@ -66,7 +58,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
-		check_sec_p(av[1]);
+		checking(game.map);
 		delete (&game);
 		game.visited = arr_visited(game.maph, game.mapw);
 		check = check_all(&game, game.xx, game.yy);
