@@ -35,15 +35,17 @@ static int	**arr_visited(int max_h, int max_w)
 	return (arr);
 }
 
-static void	checking(char **map)
+static void	checking(char **map, char *av)
 {
 	int	i;
 	int	count;
 
-	i = 0;
+	i = ft_strlen(av) - 1;
 	count = 0;
-	if (!map || (ft_strlen(map[0]) < 2 && (map[0][0] == 'P'
-				|| map[0][0] == 'C')))
+
+	if(av[i] != 'r' && av[i - 1] != 'e' && av[i - 2] != 'b' && av[i - 3] != '.')
+		count = 1;
+	if (!map || count)
 	{
 		ft_printf("%s\n", "Map is invalid!");
 		exit(0);
@@ -58,7 +60,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
-		checking(game.map);
+		checking(game.map, av[1]);
 		delete (&game);
 		game.visited = arr_visited(game.maph, game.mapw);
 		check = check_all(&game, game.xx, game.yy);
