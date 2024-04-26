@@ -85,12 +85,4 @@ int	check_all(t_stack *game, int x, int y)
 			&& map_checker_three_val && (game->collect_found == csize) && h >= 3)
 		return (1);
 	return (0);
-
-	// ft_printf("csize:  %d\n", csize);
-	// ft_printf("map_checker_val:  %d\n", map_checker_val);
-	// ft_printf("map_checker_two_val:  %d\n", map_checker_two_val);
-	// ft_printf("map_checker_three_val:  %d\n", map_checker_three_val);
-	// ft_printf("game->collect_found:  %d\n", game->collect_found);
-	// ft_printf("csize:  %d\n", csize);
-	// ft_printf("csize:  %d\n", csize);
 }

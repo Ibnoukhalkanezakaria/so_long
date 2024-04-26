@@ -71,7 +71,7 @@ static void	size_window_two(t_stack *game)
 	game->maph = i * 64;
 }
 
-void delete (t_stack *game)
+void	delete(t_stack *game)
 {
 	int	x;
 	int	y;

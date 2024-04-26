@@ -22,14 +22,6 @@ static void	free_map(char **map)
 	free(map);
 }
 
-// void free_memory(char **ptr)
-// {
-//     if (ptr != NULL) {
-//         free(ptr);
-//         ptr = NULL; 
-//     }
-// }
-
 static void	free_visited(t_stack *game)
 {
 	int	i;
@@ -45,7 +37,6 @@ int	exit_the_game(t_stack *game)
 	map_draw(game);
 	free_visited(game);
 	free_map(game->map);
-	// free_memory(game->map);
 	mlx_destroy_image(game->mlx, game->back_img);
 	mlx_destroy_image(game->mlx, game->wall_img);
 	mlx_destroy_image(game->mlx, game->player_img);

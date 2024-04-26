@@ -24,10 +24,7 @@ int	count_lines(t_stack *game)
 	while (game->map[i])
 	{
 		if (ft_strlen(game->map[i]) != size)
-		{
-			ft_printf("ft_strlen(game->map[i]): %d\n", ft_strlen(game->map[i]));
 			return 0;
-		}
 		i++;
 	}
 	return 1;

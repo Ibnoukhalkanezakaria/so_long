@@ -42,8 +42,8 @@ static void	checking(char **map, char *av)
 
 	i = ft_strlen(av) - 1;
 	count = 0;
-
-	if(av[i] != 'r' && av[i - 1] != 'e' && av[i - 2] != 'b' && av[i - 3] != '.')
+	if (av[i] != 'r' && av[i - 1] != 'e' && av[i - 2] != 'b' && av[i
+			- 3] != '.')
 		count = 1;
 	if (!map || count)
 	{
@@ -68,7 +68,6 @@ int	main(int ac, char **av)
 		{
 			create_window(&game);
 			play(&game);
-			// mlx_destroy_image(game.mlx, game.exit_img);
 			mlx_loop(game.mlx);
 		}
 		else
