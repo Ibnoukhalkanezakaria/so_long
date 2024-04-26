@@ -68,6 +68,7 @@ int	main(int ac, char **av)
 		{
 			create_window(&game);
 			play(&game);
+			// mlx_destroy_image(game.mlx, game.exit_img);
 			mlx_loop(game.mlx);
 		}
 		else

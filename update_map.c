@@ -85,6 +85,7 @@ void	key_a(t_stack *game)
 		&& game->map[game->y_play][game->x_play - 1] != '1'
 		&& game->map[game->y_play][game->x_play - 1] != 'E')
 	{
+
 		game->map[game->y_play][game->x_play - 1] = 'P';
 		game->map[game->y_play][game->x_play] = '0';
 	}

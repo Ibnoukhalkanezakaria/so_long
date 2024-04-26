@@ -24,38 +24,40 @@ int	count_lines(t_stack *game)
 	while (game->map[i])
 	{
 		if (ft_strlen(game->map[i]) != size)
-			count++;
+		{
+			ft_printf("ft_strlen(game->map[i]): %d\n", ft_strlen(game->map[i]));
+			return 0;
+		}
 		i++;
 	}
-	return (count);
+	return 1;
 }
 
-int	check_one(t_stack *game)
+int is_other_character(t_stack *game)
 {
-    int i;
-    int count;
-    int count2;
+	int i;
+	int j;
 
 	i = 0;
-    count = 0;
-    count2 = 0;
+	j = 0;
 	while (game->map[i])
 	{
-        int j = 0;
-        while (game->map[i][j])
-        {
-            if(game->map[i][j] == '1' 
-            || game->map[i][j] == '0' 
-            || game->map[i][j] == 'C' 
-            || game->map[i][j] == 'P'
-            || game->map[i][j] == 'E'
-            )
-                return 1;
-            j++;
-        }
+		j = 0;
+		while (game->map[i][j])
+		{
+			if(!(game->map[i][j] == '1' 
+			|| game->map[i][j] == '0' 
+			|| game->map[i][j] == 'P' 
+			|| game->map[i][j] == 'E' 
+			|| game->map[i][j] == 'C'))
+			{
+				return 0;
+			}
+			j++;
+		}
 		i++;
 	}
-    return 0;
+	return 1;
 }
 
 int	map_checker_three(t_stack *game)
@@ -63,9 +65,10 @@ int	map_checker_three(t_stack *game)
 	int	count;
 	int check;
 
-	check = check_one(game);
+	check = is_other_character(game);
 	count = count_lines(game);
-	if (count > 0 && !check)
+
+	if (!check || !count)
 		return (0);
 	return (1);
 }

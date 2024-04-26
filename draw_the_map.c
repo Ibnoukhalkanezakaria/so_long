@@ -58,7 +58,6 @@ static void	exit_draw(t_stack *game, int x, int y)
 				&game->width, &game->height);
 	else
 	{
-		// mlx_destroy_image(game->mlx, game->exit_img);
 		game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/door3.xpm",
 				&game->width, &game->height);
 	}
