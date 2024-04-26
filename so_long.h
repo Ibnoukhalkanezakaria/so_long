@@ -50,6 +50,7 @@ typedef struct so_long
 	void	*exit_img;
 	int		endgame;
 	int		yy;
+	int		done;
 	int		xx;
 }			t_stack;
 
