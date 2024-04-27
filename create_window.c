@@ -22,6 +22,10 @@ static void	put_images(t_stack *game)
 			&game->width, &game->height);
 	game->img1_img = mlx_xpm_file_to_image(game->mlx, "images/star2.xpm",
 			&game->width, &game->height);
+	game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/door3.xpm",
+			&game->width, &game->height);
+	game->exit_img2 = mlx_xpm_file_to_image(game->mlx, "images/door.xpm",
+			&game->width, &game->height);
 }
 
 static void	size_window(t_stack *game)

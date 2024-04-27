@@ -34,7 +34,6 @@ static void	free_visited(t_stack *game)
 
 int	exit_the_game(t_stack *game)
 {
-	map_draw(game);
 	free_visited(game);
 	free_map(game->map);
 	mlx_destroy_image(game->mlx, game->back_img);
@@ -42,6 +41,7 @@ int	exit_the_game(t_stack *game)
 	mlx_destroy_image(game->mlx, game->player_img);
 	mlx_destroy_image(game->mlx, game->img1_img);
 	mlx_destroy_image(game->mlx, game->exit_img);
+	mlx_destroy_image(game->mlx, game->exit_img2);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);

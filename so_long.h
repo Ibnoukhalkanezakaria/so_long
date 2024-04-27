@@ -48,6 +48,7 @@ typedef struct so_long
 	int		collect_found;
 	int		**visited;
 	void	*exit_img;
+	void	*exit_img2;
 	int		endgame;
 	int		yy;
 	int		done;

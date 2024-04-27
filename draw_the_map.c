@@ -51,19 +51,6 @@ static void	sum_the_stars(t_stack *game)
 	game->the_stars = count;
 }
 
-static void	exit_draw(t_stack *game, int x, int y)
-{
-	if (game->the_stars == 0)
-		game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/door.xpm",
-				&game->width, &game->height);
-	else
-	{
-		game->exit_img = mlx_xpm_file_to_image(game->mlx, "images/door3.xpm",
-				&game->width, &game->height);
-	}
-	draw_img(game, game->exit_img, x, y);
-}
-
 int	map_draw(t_stack *game)
 {
 	int	y;
@@ -84,7 +71,12 @@ int	map_draw(t_stack *game)
 			else if (game->map[y][x] == 'C')
 				draw_img(game, game->img1_img, x, y);
 			else if (game->map[y][x] == 'E')
-				exit_draw(game, x, y);
+			{
+				if(game->the_stars == 0)
+					draw_img(game, game->exit_img2, x, y);
+				else
+					draw_img(game, game->exit_img, x, y);
+			}
 			x++;
 		}
 		y++;
