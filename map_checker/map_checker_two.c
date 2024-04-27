@@ -24,56 +24,50 @@ int	get_length(t_stack *game)
 
 int	how_much_ones(char *line)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (line[i])
 	{
-		if(line[i] != '1')
-			return 0;
+		if (line[i] != '1')
+			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
 int	f1(t_stack *game)
 {
-	int i;
-
-	i = 0;
-	while (game->map[i])
-	{
-		if(game->map[i][0] != '1')
-			return 0;
-		i++;
-	}
-	return 1;
-}
-
-int	f2(t_stack *game)
-{
-	int i;
-
-	int size = ft_strlen(game->map[0]) - 1; 
-	i = 0;
-	while (game->map[i])
-	{
-		if(game->map[i][size] != '1')
-			return 0;
-		i++;
-	}
-	return 1;
-}
-
-int	map_checker_two(t_stack *game)
-{
-
 	int	i;
 
 	i = 0;
 	while (game->map[i])
 	{
+		if (game->map[i][0] != '1')
+			return (0);
 		i++;
 	}
+	return (1);
+}
 
+int	f2(t_stack *game)
+{
+	int	i;
+	int	size;
+
+	size = ft_strlen(game->map[0]) - 1;
+	i = 0;
+	while (game->map[i])
+	{
+		if (game->map[i][size] != '1')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	map_checker_two(t_stack *game)
+{
 	int	get_count_f1;
 	int	get_count_f2;
 	int	length_of_the_last_line;
@@ -89,10 +83,4 @@ int	map_checker_two(t_stack *game)
 		return (0);
 	else
 		return (1);
-	
-	// ft_printf("get_count_f1 :%d\n", get_count_f1);
-	// ft_printf("get_count_f2 :%d\n", get_count_f2);
-	// ft_printf("length_of_the_last_line :%d\n", length_of_the_last_line);
-	// ft_printf("get_first_line :%d\n", get_first_line);
-	// ft_printf("get_last_line :%d\n", get_last_line);
 }

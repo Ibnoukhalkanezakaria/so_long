@@ -51,6 +51,17 @@ static void	sum_the_stars(t_stack *game)
 	game->the_stars = count;
 }
 
+static void	put(t_stack *game, char ele, int x, int y)
+{
+	if (ele == 'E')
+	{
+		if (game->the_stars == 0)
+			draw_img(game, game->exit_img2, x, y);
+		else
+			draw_img(game, game->exit_img, x, y);
+	}
+}
+
 int	map_draw(t_stack *game)
 {
 	int	y;
@@ -70,13 +81,8 @@ int	map_draw(t_stack *game)
 				draw_the_player(game, game->player_img, x, y);
 			else if (game->map[y][x] == 'C')
 				draw_img(game, game->img1_img, x, y);
-			else if (game->map[y][x] == 'E')
-			{
-				if(game->the_stars == 0)
-					draw_img(game, game->exit_img2, x, y);
-				else
-					draw_img(game, game->exit_img, x, y);
-			}
+			else
+				put(game, 'E', x, y);
 			x++;
 		}
 		y++;

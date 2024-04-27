@@ -91,7 +91,7 @@ static int	semu_y(t_stack *game);
 static int	semu_x(t_stack *game);
 void		free_map(char **map);
 int			check_all(t_stack *game, int x, int y);
-int	checkone(t_stack *game);
+int			checkone(t_stack *game);
 void		delete(t_stack *game);
 
 #endif
