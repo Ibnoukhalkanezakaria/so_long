@@ -26,7 +26,8 @@ static void	put_images(t_stack *game)
 			&game->width, &game->height);
 	game->exit_img2 = mlx_xpm_file_to_image(game->mlx, "images/door.xpm",
 			&game->width, &game->height);
-	if(!game->wall_img || !game->back_img || !game->player_img || !game->img1_img || !game->exit_img || !game->exit_img2)
+	if (!game->wall_img || !game->back_img || !game->player_img
+		|| !game->img1_img || !game->exit_img || !game->exit_img2)
 	{
 		ft_printf("%s\n", "Error");
 		exit(0);
