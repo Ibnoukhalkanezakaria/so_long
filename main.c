@@ -43,9 +43,24 @@ static void	checking(char **map, char *av)
 	i = ft_strlen(av) - 1;
 	count = 0;
 	if (av[i] != 'r' && av[i - 1] != 'e' && av[i - 2] != 'b' && av[i
-			- 3] != '.')
+		- 3] != '.')
 		count = 1;
 	if (!map || count)
+	{
+		ft_printf("%s\n", "Map is invalid!");
+		exit(0);
+	}
+}
+
+static void	call(t_stack *game, int check, int count)
+{
+	if (check && count)
+	{
+		create_window(game);
+		play(game);
+		mlx_loop(game->mlx);
+	}
+	else
 	{
 		ft_printf("%s\n", "Map is invalid!");
 		exit(0);
@@ -56,25 +71,17 @@ int	main(int ac, char **av)
 {
 	t_stack	game;
 	int		check;
+	int		count;
 
 	if (ac == 2)
 	{
+		count = get_empty(av[1]);
 		game.map = read_map(av[1]);
 		checking(game.map, av[1]);
 		delete (&game);
 		game.visited = arr_visited(game.maph, game.mapw);
 		check = check_all(&game, game.xx, game.yy);
-		if (check)
-		{
-			create_window(&game);
-			play(&game);
-			mlx_loop(game.mlx);
-		}
-		else
-		{
-			ft_printf("%s\n", "Map is invalid!");
-			exit(0);
-		}
+		call(&game, check, count);
 	}
 	else
 		ft_printf("%s\n", "Error");

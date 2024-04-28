@@ -32,7 +32,7 @@ static void	update_image(char key, t_stack *game)
 void	key_s(t_stack *game)
 {
 	if (game->the_stars == 0 && game->map[game->y_play
-			+ 1][game->x_play] == 'E')
+		+ 1][game->x_play] == 'E')
 		exit_the_game(game);
 	if (game->map[game->y_play][game->x_play] == 'P' && game->map[game->y_play
 		+ 1][game->x_play] != '1' && game->map[game->y_play
@@ -47,7 +47,7 @@ void	key_s(t_stack *game)
 void	key_w(t_stack *game)
 {
 	if (game->the_stars == 0 && game->map[game->y_play
-			- 1][game->x_play] == 'E')
+		- 1][game->x_play] == 'E')
 		exit_the_game(game);
 	if (game->map[game->y_play][game->x_play] == 'P' && game->map[game->y_play
 		- 1][game->x_play] != '1' && game->map[game->y_play

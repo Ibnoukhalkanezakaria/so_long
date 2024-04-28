@@ -13,7 +13,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "minilibx-linux/mlx.h"
+# include "mlx.h"
 # include <fcntl.h>
 # include <stdbool.h>
 # include <stdlib.h>
@@ -93,5 +93,6 @@ void		free_map(char **map);
 int			check_all(t_stack *game, int x, int y);
 int			checkone(t_stack *game);
 void		delete(t_stack *game);
+int			get_empty(char *path);
 
 #endif
