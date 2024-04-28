@@ -39,13 +39,20 @@ int	get_empty(char *path)
 	int		i;
 
 	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return -1;
+	
 	i = 0;
 	empty_s = ft_strdup("");
+	if(!empty_s)
+		return 0;
 	while ((line = get_next_line(fd)))
 	{
 		string = ft_strjoin(empty_s, line);
 		empty_s = string;
+		free(line);
 		i++;
 	}
+	free(empty_s);
 	return (ft_s(string, i));
 }
