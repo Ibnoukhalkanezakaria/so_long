@@ -73,8 +73,11 @@ int	check_all(t_stack *game, int x, int y)
 	int	map_checker_two_val;
 	int	map_checker_three_val;
 	int	h;
+	int w;
 
 	h = get_h(game);
+	w = get_w(game);
+
 	csize = sum_cc(game);
 	map_checker_val = map_checker(game);
 	map_checker_two_val = map_checker_two(game);
@@ -82,7 +85,7 @@ int	check_all(t_stack *game, int x, int y)
 	if (map_checker_two_val)
 		map_checker_four(game, x, y);
 	if (map_checker_val && map_checker_two_val && map_checker_three_val
-		&& (game->collect_found == csize) && h >= 3)
+		&& (game->collect_found == csize) && h >= 3 && h != w)
 		return (1);
 	return (0);
 }
