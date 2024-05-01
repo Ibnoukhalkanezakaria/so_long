@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   play.c                                             :+:      :+:    :+:   */
+/*   exit_the_game.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zibnoukh <zibnoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -36,12 +36,18 @@ int	exit_the_game(t_stack *game)
 {
 	free_visited(game);
 	free_map(game->map);
-	mlx_destroy_image(game->mlx, game->back_img);
-	mlx_destroy_image(game->mlx, game->wall_img);
-	mlx_destroy_image(game->mlx, game->player_img);
-	mlx_destroy_image(game->mlx, game->img1_img);
-	mlx_destroy_image(game->mlx, game->exit_img);
-	mlx_destroy_image(game->mlx, game->exit_img2);
+	if (game->back_img != NULL)
+		mlx_destroy_image(game->mlx, game->back_img);
+	if (game->wall_img != NULL)
+		mlx_destroy_image(game->mlx, game->wall_img);
+	if (game->player_img != NULL)
+		mlx_destroy_image(game->mlx, game->player_img);
+	if (game->img1_img != NULL)
+		mlx_destroy_image(game->mlx, game->img1_img);
+	if (game->exit_img != NULL)
+		mlx_destroy_image(game->mlx, game->exit_img);
+	if (game->exit_img2 != NULL)
+		mlx_destroy_image(game->mlx, game->exit_img2);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);

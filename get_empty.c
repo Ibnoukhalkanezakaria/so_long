@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   get_empty.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zibnoukh <zibnoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -30,17 +30,24 @@ int	fill(char *empty_s, int num, int check)
 	return (1);
 }
 
+int	f(char *empty_s, int i, int check)
+{
+	int	r;
+
+	r = fill(empty_s, i - 1, check);
+	free(empty_s);
+	return (r);
+}
+
 int	get_empty(char *path)
 {
 	int		fd;
 	char	*line;
 	char	*empty_s;
-	char	*string;
 	char	*temp;
 	int		i;
 	int		check;
 
-	check = 0;
 	i = 0;
 	empty_s = NULL;
 	fd = open(path, O_RDONLY);
@@ -52,7 +59,8 @@ int	get_empty(char *path)
 			check = 1;
 		temp = ft_strjoin(empty_s, line);
 		empty_s = temp;
+		free(line);
 		i++;
 	}
-	return (fill(empty_s, i - 1, check));
+	f(empty_s, i, check);
 }

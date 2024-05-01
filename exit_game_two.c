@@ -1,51 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker.c                                             :+:      :+:    :+:   */
+/*   exit_game_two.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zibnoukh <zibnoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 13:56:18 by zibnoukh          #+#    #+#             */
-/*   Updated: 2024/03/22 14:31:04 by zibnoukh         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:07:46 by zibnoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
-int	get_ele(t_stack *game, char c)
+static void	free_map(char **map)
 {
 	int	i;
-	int	j;
-	int	count;
 
 	i = 0;
-	count = 0;
-	while (game->map[i])
-	{
-		j = 0;
-		while (game->map[i][j])
-		{
-			if (game->map[i][j] == c)
-				count++;
-			j++;
-		}
-		i++;
-	}
-	return (count);
+	while (map[i])
+		free(map[i++]);
+	free(map);
 }
 
-int	map_checker(t_stack *game)
+static void	free_visited(t_stack *game)
 {
-	int	get_player_ele;
-	int	get_door_ele;
-	int	get_star_ele;
+	int	i;
 
-	get_player_ele = get_ele(game, 'P');
-	get_door_ele = get_ele(game, 'E');
-	get_star_ele = get_ele(game, 'C');
-	if (get_player_ele == 1 && get_door_ele == 1 && get_star_ele > 0
-		&& !ft_strlen(game->map[0]) < 2)
-		return (1);
-	else
-		return (0);
+	i = 0;
+	while (i < game->maph)
+		free(game->visited[i++]);
+	free(game->visited);
+}
+
+int	exit_game_two(t_stack *game)
+{
+	free_visited(game);
+	free_map(game->map);
+	free(game->mlx);
+	exit(0);
+	return (0);
 }

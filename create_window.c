@@ -29,8 +29,8 @@ static void	put_images(t_stack *game)
 	if (!game->wall_img || !game->back_img || !game->player_img
 		|| !game->img1_img || !game->exit_img || !game->exit_img2)
 	{
-		ft_printf("%s\n", "Error");
-		exit(0);
+		ft_printf("%s\n", "Invalid image");
+		exit_the_game(game);
 	}
 }
 

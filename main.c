@@ -46,7 +46,7 @@ static void	call(t_stack *game, int check, int count)
 	else
 	{
 		ft_printf("%s\n", "Map is invalid!");
-		exit(0);
+		exit_game_two(game);
 	}
 }
 
@@ -66,7 +66,7 @@ static int	checking(t_stack *game, char **map, char *av)
 	{
 		result = 1;
 		ft_printf("%s\n", "Map is invalid!");
-		exit(0);
+		exit_game_three(game);
 	}
 	return (result);
 }

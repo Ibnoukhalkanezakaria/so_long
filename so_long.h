@@ -94,5 +94,7 @@ int			check_all(t_stack *game, int x, int y);
 int			checkone(t_stack *game);
 void		delete(t_stack *game);
 int			get_empty(char *path);
+int			exit_game_two(t_stack *game);
+int			exit_game_three(t_stack *game);
 
 #endif
