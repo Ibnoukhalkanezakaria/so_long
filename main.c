@@ -35,7 +35,6 @@ static int	**arr_visited(int max_h, int max_w)
 	return (arr);
 }
 
-
 static void	call(t_stack *game, int check, int count)
 {
 	if (check && count)
@@ -55,13 +54,13 @@ static int	checking(t_stack *game, char **map, char *av)
 {
 	int	i;
 	int	count;
-	int result;
+	int	result;
 
 	result = 0;
 	i = ft_strlen(av) - 1;
 	count = 0;
 	if (av[i] != 'r' && av[i - 1] != 'e' && av[i - 2] != 'b' && av[i
-		- 3] != '.')
+			- 3] != '.')
 		count = 1;
 	if (!map || count)
 	{
@@ -69,7 +68,7 @@ static int	checking(t_stack *game, char **map, char *av)
 		ft_printf("%s\n", "Map is invalid!");
 		exit(0);
 	}
-	return result;
+	return (result);
 }
 
 int	main(int ac, char **av)
@@ -77,13 +76,13 @@ int	main(int ac, char **av)
 	t_stack	game;
 	int		check;
 	int		count;
-	int 	num;
+	int		num;
 
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
 		count = checking(&game, game.map, av[1]);
-		if(!count)
+		if (!count)
 			num = get_empty(av[1]);
 		delete (&game);
 		game.visited = arr_visited(game.maph, game.mapw);

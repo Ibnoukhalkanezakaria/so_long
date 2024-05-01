@@ -12,45 +12,47 @@
 
 #include "so_long.h"
 
-int fill(char *empty_s, int num, int check)
+int	fill(char *empty_s, int num, int check)
 {
-    int i;
-    int count;
+	int	i;
+	int	count;
 
-    count = 0;
-    i = 0;
-    while (empty_s[i])
-    {
-        if(empty_s[i] == '\n')
-            count++;
-        i++;
-    }
-
-    if(count > num || check)
-        return 0;
-    return 1;
+	count = 0;
+	i = 0;
+	while (empty_s[i])
+	{
+		if (empty_s[i] == '\n')
+			count++;
+		i++;
+	}
+	if (count > num || check)
+		return (0);
+	return (1);
 }
 
-int get_empty(char *path)
+int	get_empty(char *path)
 {
-    int fd;
-    char *line;
-    char *empty_s = NULL;
-    char *string = NULL;
-    int i = 0;
-    int check = 0;
-    
-    fd = open(path, O_RDONLY);
-    if (fd == -1)
-        return -1;
-    
-    while ((line = get_next_line(fd)))
-    {
-        if(ft_strlen(line) <= 1)
-            check = 1;
-        char *temp = ft_strjoin(empty_s, line); 
-        empty_s = temp; 
-        i++;
-    }
-    return fill(empty_s, i - 1, check);
+	int		fd;
+	char	*line;
+	char	*empty_s;
+	char	*string;
+	char	*temp;
+	int		i;
+	int		check;
+
+	check = 0;
+	i = 0;
+	empty_s = NULL;
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (-1);
+	while ((line = get_next_line(fd)))
+	{
+		if (ft_strlen(line) <= 1)
+			check = 1;
+		temp = ft_strjoin(empty_s, line);
+		empty_s = temp;
+		i++;
+	}
+	return (fill(empty_s, i - 1, check));
 }
