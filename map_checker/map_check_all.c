@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_all.c                                             :+:      :+:    :+:   */
+/*   check_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zibnoukh <zibnoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -72,11 +72,6 @@ int	check_all(t_stack *game, int x, int y)
 	int	map_checker_val;
 	int	map_checker_two_val;
 	int	map_checker_three_val;
-	int	h;
-	int w;
-
-	h = get_h(game);
-	w = get_w(game);
 
 	csize = sum_cc(game);
 	map_checker_val = map_checker(game);
@@ -85,7 +80,8 @@ int	check_all(t_stack *game, int x, int y)
 	if (map_checker_two_val)
 		map_checker_four(game, x, y);
 	if (map_checker_val && map_checker_two_val && map_checker_three_val
-		&& (game->collect_found == csize) && h >= 3 && h != w)
+		&& (game->collect_found == csize)
+		&& get_h(game) >= 3 && get_h(game) != get_w(game))
 		return (1);
 	return (0);
 }

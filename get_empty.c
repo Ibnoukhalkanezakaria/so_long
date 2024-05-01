@@ -24,19 +24,10 @@ int	fill(char *empty_s, int num, int check)
 		if (empty_s[i] == '\n')
 			count++;
 		i++;
-	}
+	}	
 	if (count > num || check)
 		return (0);
 	return (1);
-}
-
-int	f(char *empty_s, int i, int check)
-{
-	int	r;
-
-	r = fill(empty_s, i - 1, check);
-	free(empty_s);
-	return (r);
 }
 
 int	get_empty(char *path)
@@ -47,7 +38,9 @@ int	get_empty(char *path)
 	char	*temp;
 	int		i;
 	int		check;
-
+	int		r;
+	
+	check = 0;
 	i = 0;
 	empty_s = NULL;
 	fd = open(path, O_RDONLY);
@@ -62,5 +55,7 @@ int	get_empty(char *path)
 		free(line);
 		i++;
 	}
-	f(empty_s, i, check);
+	r = fill(empty_s, i - 1, check);
+	free(empty_s);
+	return (r);
 }
