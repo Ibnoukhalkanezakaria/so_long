@@ -24,10 +24,10 @@ static void	free_map(char **map)
 
 int	exit_game_three(t_stack *game)
 {
-	if(game->map)
+	if (game->map)
 	{
 		free_map(game->map);
-		free(game->mlx);
+		// free(game->mlx);
 	}
 	exit(0);
 	return (0);

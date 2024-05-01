@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int	fill(char *empty_s, int num, int check)
+int	fill(char *empty_s, int num)
 {
 	int	i;
 	int	count;
@@ -24,38 +24,79 @@ int	fill(char *empty_s, int num, int check)
 		if (empty_s[i] == '\n')
 			count++;
 		i++;
-	}	
-	if (count > num || check)
+	}
+	if (count > num)
 		return (0);
 	return (1);
 }
 
-int	get_empty(char *path)
+int	vim(char *empty_s, int i)
+{
+	int	r;
+
+	r = fill(empty_s, i - 1);
+	free(empty_s);
+	return (r);
+}
+
+int	one(char *path)
 {
 	int		fd;
 	char	*line;
 	char	*empty_s;
 	char	*temp;
 	int		i;
-	int		check;
-	int		r;
-	
-	check = 0;
+
 	i = 0;
 	empty_s = NULL;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		return (-1);
-	while ((line = get_next_line(fd)))
+	while (1)
 	{
-		if (ft_strlen(line) <= 1)
-			check = 1;
+		line = get_next_line(fd);
+		if (!line)
+			break ;
 		temp = ft_strjoin(empty_s, line);
 		empty_s = temp;
 		free(line);
 		i++;
 	}
-	r = fill(empty_s, i - 1, check);
-	free(empty_s);
-	return (r);
+	vim(empty_s, i);
+}
+
+int	two(char *path)
+{
+	int		fd;
+	char	*line;
+	int		check;
+
+	check = 0;
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (-1);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		if (ft_strlen(line) <= 1)
+			check = 1;
+		free(line);
+	}
+	if (check)
+		return (0);
+	return (1);
+}
+
+int	get_empty(char *path)
+{
+	int	val_one;
+	int	val_two;
+
+	val_one = one(path);
+	val_two = two(path);
+	if (val_one && val_two)
+		return (1);
+	return (0);
 }

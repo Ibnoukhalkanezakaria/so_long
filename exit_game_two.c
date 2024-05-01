@@ -36,7 +36,6 @@ int	exit_game_two(t_stack *game)
 {
 	free_visited(game);
 	free_map(game->map);
-	free(game->mlx);
 	exit(0);
 	return (0);
 }
