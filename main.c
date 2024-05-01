@@ -35,21 +35,6 @@ static int	**arr_visited(int max_h, int max_w)
 	return (arr);
 }
 
-static void	call(t_stack *game, int check, int count)
-{
-	if (check && count)
-	{
-		create_window(game);
-		play(game);
-		mlx_loop(game->mlx);
-	}
-	else
-	{
-		ft_printf("%s\n", "Map is invalid!");
-		exit_game_two(game);
-	}
-}
-
 static int	checking(t_stack *game, char **map, char *av)
 {
 	int	i;
@@ -69,6 +54,21 @@ static int	checking(t_stack *game, char **map, char *av)
 		exit_game_three(game);
 	}
 	return (result);
+}
+
+static void	call(t_stack *game, int check, int count)
+{
+	if (check && count)
+	{
+		create_window(game);
+		play(game);
+		mlx_loop(game->mlx);
+	}
+	else
+	{
+		ft_printf("%s\n", "Map is invalid!");
+		exit_game_two(game);
+	}
 }
 
 int	main(int ac, char **av)
