@@ -50,7 +50,7 @@ static int	checking(t_stack *game, char **map, char *av)
 	if (!map || count)
 	{
 		result = 1;
-		ft_printf("%s\n", "Map is invalid!");
+		ft_printf("%s\n", "Error\nMap is invalid!");
 		exit_game_three(game);
 	}
 	return (result);
@@ -66,7 +66,7 @@ static void	call(t_stack *game, int check, int count)
 	}
 	else
 	{
-		ft_printf("%s\n", "Map is invalid!");
+		ft_printf("%s\n", "Error\nMap is invalid!");
 		exit_game_two(game);
 	}
 }
@@ -78,6 +78,7 @@ int	main(int ac, char **av)
 	int		count;
 	int		result;
 
+	result = 0;
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);

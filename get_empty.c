@@ -62,7 +62,7 @@ int	one(char *path)
 		free(line);
 		i++;
 	}
-	vim(empty_s, i);
+	return (vim(empty_s, i));
 }
 
 int	two(char *path)

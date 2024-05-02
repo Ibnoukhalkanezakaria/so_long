@@ -44,7 +44,7 @@ int	map_checker(t_stack *game)
 	get_door_ele = get_ele(game, 'E');
 	get_star_ele = get_ele(game, 'C');
 	if (get_player_ele == 1 && get_door_ele == 1 && get_star_ele > 0
-		&& !ft_strlen(game->map[0]) < 2)
+		&& !(ft_strlen(game->map[0]) < 2))
 		return (1);
 	else
 		return (0);

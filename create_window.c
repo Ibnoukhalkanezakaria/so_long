@@ -29,7 +29,7 @@ static void	put_images(t_stack *game)
 	if (!game->wall_img || !game->back_img || !game->player_img
 		|| !game->img1_img || !game->exit_img || !game->exit_img2)
 	{
-		ft_printf("%s\n", "Invalid image");
+		ft_printf("%s\n", "Error\nInvalid image");
 		exit_the_game(game);
 	}
 }
@@ -51,7 +51,7 @@ void	create_window(t_stack *game)
 	size_window(game);
 	game->win = mlx_new_window(game->mlx, game->map_width, game->map_height,
 			"Window Shopper");
-	game->moves = 0;
+	game->moves = 1;
 	game->endgame = 0;
 	put_images(game);
 	map_draw(game);

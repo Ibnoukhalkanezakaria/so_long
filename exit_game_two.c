@@ -12,26 +12,6 @@
 
 #include "so_long.h"
 
-static void	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		free(map[i++]);
-	free(map);
-}
-
-static void	free_visited(t_stack *game)
-{
-	int	i;
-
-	i = 0;
-	while (i < game->maph)
-		free(game->visited[i++]);
-	free(game->visited);
-}
-
 int	exit_game_two(t_stack *game)
 {
 	free_visited(game);

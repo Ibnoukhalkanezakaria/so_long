@@ -12,23 +12,10 @@
 
 #include "so_long.h"
 
-static void	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		free(map[i++]);
-	free(map);
-}
-
 int	exit_game_three(t_stack *game)
 {
 	if (game->map)
-	{
 		free_map(game->map);
-		// free(game->mlx);
-	}
 	exit(0);
 	return (0);
 }

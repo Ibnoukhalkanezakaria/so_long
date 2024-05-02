@@ -33,6 +33,7 @@ typedef struct so_long
 	int		map_height;
 	int		map_width;
 	int		moves;
+	int		move;
 	int		end;
 	int		y_play;
 	int		x_play;
@@ -64,7 +65,7 @@ typedef struct so_long
 # define KEY_17 17
 
 char		**ft_split(char const *s, char c);
-size_t		ft_strlen(const char *s);
+int			ft_strlen(const char *s);
 char		*get_next_line(int fd);
 char		*ft_strdup(const char *s);
 char		*ft_strjoin(const char *s1, const char *s2);
@@ -76,19 +77,18 @@ void		key_d(t_stack *game);
 void		key_s(t_stack *game);
 void		key_a(t_stack *game);
 void		key_w(t_stack *game);
-static void	update_image(char key, t_stack *game);
-static void	get_events(int key, t_stack *game);
+void		update_image(char key, t_stack *game);
+void		get_events(int key, t_stack *game);
 int			map_draw(t_stack *game);
 int			exit_the_game(t_stack *game);
-static void	free_map(char **map);
 int			map_checker(t_stack *game);
 int			map_checker_two(t_stack *game);
 int			map_checker_three(t_stack *game);
 void		map_checker_four(t_stack *game, int x, int y);
 int			get_w(t_stack *game);
 int			get_h(t_stack *game);
-static int	semu_y(t_stack *game);
-static int	semu_x(t_stack *game);
+int			semu_y(t_stack *game);
+int			semu_x(t_stack *game);
 void		free_map(char **map);
 int			check_all(t_stack *game, int x, int y);
 int			checkone(t_stack *game);
@@ -96,5 +96,7 @@ void		delete(t_stack *game);
 int			get_empty(char *path);
 int			exit_game_two(t_stack *game);
 int			exit_game_three(t_stack *game);
+int			get_empty(char *path);
+void		free_visited(t_stack *game);
 
 #endif

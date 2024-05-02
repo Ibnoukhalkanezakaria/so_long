@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static void	free_map(char **map)
+void	free_map(char **map)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ static void	free_map(char **map)
 	free(map);
 }
 
-static void	free_visited(t_stack *game)
+void	free_visited(t_stack *game)
 {
 	int	i;
 

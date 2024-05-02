@@ -15,11 +15,9 @@
 int	count_lines(t_stack *game)
 {
 	int	i;
-	int	count;
 	int	size;
 
 	i = 0;
-	count = 0;
 	size = ft_strlen(game->map[0]);
 	while (game->map[i])
 	{

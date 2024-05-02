@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static void	update_image(char key, t_stack *game)
+void	update_image(char key, t_stack *game)
 {
 	mlx_destroy_image(game->mlx, game->player_img);
 	if (key == 'w')
@@ -33,13 +33,17 @@ void	key_s(t_stack *game)
 {
 	if (game->the_stars == 0 && game->map[game->y_play
 			+ 1][game->x_play] == 'E')
+	{
+		ft_printf("Moves: %d\n", game->moves++);
 		exit_the_game(game);
+	}
 	if (game->map[game->y_play][game->x_play] == 'P' && game->map[game->y_play
 		+ 1][game->x_play] != '1' && game->map[game->y_play
 		+ 1][game->x_play] != 'E')
 	{
 		game->map[game->y_play][game->x_play] = '0';
 		game->map[game->y_play + 1][game->x_play] = 'P';
+		ft_printf("Moves: %d\n", game->moves++);
 	}
 	map_draw(game);
 }
@@ -48,13 +52,17 @@ void	key_w(t_stack *game)
 {
 	if (game->the_stars == 0 && game->map[game->y_play
 			- 1][game->x_play] == 'E')
+	{
+		ft_printf("Moves: %d\n", game->moves++);
 		exit_the_game(game);
+	}
 	if (game->map[game->y_play][game->x_play] == 'P' && game->map[game->y_play
 		- 1][game->x_play] != '1' && game->map[game->y_play
 		- 1][game->x_play] != 'E')
 	{
 		game->map[game->y_play][game->x_play] = '0';
 		game->map[game->y_play - 1][game->x_play] = 'P';
+		ft_printf("Moves: %d\n", game->moves++);
 	}
 	map_draw(game);
 }
@@ -64,13 +72,17 @@ void	key_d(t_stack *game)
 	update_image('d', game);
 	if (game->the_stars == 0 && game->map[game->y_play][game->x_play
 		+ 1] == 'E')
+	{
+		ft_printf("Moves: %d\n", game->moves++);
 		exit_the_game(game);
+	}
 	if (game->map[game->y_play][game->x_play] == 'P'
 		&& game->map[game->y_play][game->x_play + 1] != '1'
 		&& game->map[game->y_play][game->x_play + 1] != 'E')
 	{
 		game->map[game->y_play][game->x_play] = '0';
 		game->map[game->y_play][game->x_play + 1] = 'P';
+		ft_printf("Moves: %d\n", game->moves++);
 	}
 	map_draw(game);
 }
@@ -80,13 +92,17 @@ void	key_a(t_stack *game)
 	update_image('a', game);
 	if (game->the_stars == 0 && game->map[game->y_play][game->x_play
 		- 1] == 'E')
+	{
+		ft_printf("Moves: %d\n", game->moves++);
 		exit_the_game(game);
+	}
 	if (game->map[game->y_play][game->x_play] == 'P'
 		&& game->map[game->y_play][game->x_play - 1] != '1'
 		&& game->map[game->y_play][game->x_play - 1] != 'E')
 	{
 		game->map[game->y_play][game->x_play - 1] = 'P';
 		game->map[game->y_play][game->x_play] = '0';
+		ft_printf("Moves: %d\n", game->moves++);
 	}
 	map_draw(game);
 }

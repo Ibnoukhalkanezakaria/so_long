@@ -12,16 +12,14 @@
 
 #include "so_long.h"
 
-static int	semu_x(t_stack *game)
+int	semu_x(t_stack *game)
 {
 	int	i;
 	int	j;
 	int	x;
-	int	y;
 
 	i = 0;
 	x = 0;
-	y = 0;
 	while (game->map[i])
 	{
 		j = 0;
@@ -36,15 +34,13 @@ static int	semu_x(t_stack *game)
 	return (x);
 }
 
-static int	semu_y(t_stack *game)
+int	semu_y(t_stack *game)
 {
 	int	i;
 	int	j;
-	int	x;
 	int	y;
 
 	i = 0;
-	x = 0;
 	y = 0;
 	while (game->map[i])
 	{
@@ -73,9 +69,6 @@ static void	size_window_two(t_stack *game)
 
 void	delete(t_stack *game)
 {
-	int	x;
-	int	y;
-
 	game->xx = semu_x(game);
 	game->yy = semu_y(game);
 	game->collect_found = 0;
