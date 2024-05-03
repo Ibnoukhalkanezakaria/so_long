@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <stdbool.h>
 # include <stdlib.h>
+# include <string.h>
 
 typedef struct so_long
 {
@@ -65,6 +66,7 @@ typedef struct so_long
 # define KEY_17 17
 
 char		**ft_split(char const *s, char c);
+void		*ft_memset(void *s, int c, size_t n);
 int			ft_strlen(const char *s);
 char		*get_next_line(int fd);
 char		*ft_strdup(const char *s);

@@ -17,16 +17,21 @@ void	update_image(char key, t_stack *game)
 	mlx_destroy_image(game->mlx, game->player_img);
 	if (key == 'w')
 		game->player_img = mlx_xpm_file_to_image(game->mlx,
-				"images/player2.xpm", &game->width, &game->height);
+				"textures/player2.xpm", &game->width, &game->height);
 	else if (key == 's')
 		game->player_img = mlx_xpm_file_to_image(game->mlx,
-				"images/player2-l.xpm", &game->width, &game->height);
+				"textures/player2-l.xpm", &game->width, &game->height);
 	else if (key == 'd')
 		game->player_img = mlx_xpm_file_to_image(game->mlx,
-				"images/player2.xpm", &game->width, &game->height);
+				"textures/player2.xpm", &game->width, &game->height);
 	else if (key == 'a')
 		game->player_img = mlx_xpm_file_to_image(game->mlx,
-				"images/player2-l.xpm", &game->width, &game->height);
+				"textures/player2-l.xpm", &game->width, &game->height);
+	if (!game->player_img)
+	{
+		ft_printf("%s\n", "Error\nInvalid image");
+		exit_the_game(game);
+	}
 }
 
 void	key_s(t_stack *game)

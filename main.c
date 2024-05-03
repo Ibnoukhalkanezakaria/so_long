@@ -35,25 +35,19 @@ static int	**arr_visited(int max_h, int max_w)
 	return (arr);
 }
 
-static int	checking(t_stack *game, char **map, char *av)
+int	checking(t_stack *game, char *av)
 {
 	int	i;
-	int	count;
-	int	result;
 
-	result = 0;
 	i = ft_strlen(av) - 1;
-	count = 0;
-	if (av[i] != 'r' && av[i - 1] != 'e' && av[i - 2] != 'b' && av[i
-			- 3] != '.')
-		count = 1;
-	if (!map || count)
+	if ((!(av[i] == 'r' && av[i - 1] == 'e' && av[i - 2] == 'b'
+				&& av[i - 3] == '.')) || !(game->map)
+		|| (ft_strlen(game->map[0])) < 1)
 	{
-		result = 1;
 		ft_printf("%s\n", "Error\nMap is invalid!");
 		exit_game_three(game);
 	}
-	return (result);
+	return (1);
 }
 
 static void	call(t_stack *game, int check, int count)
@@ -78,12 +72,13 @@ int	main(int ac, char **av)
 	int		count;
 	int		result;
 
+	ft_memset((void *)&game, 0, sizeof(t_stack));
 	result = 0;
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
-		count = checking(&game, game.map, av[1]);
-		if (!count)
+		count = checking(&game, av[1]);
+		if ((count))
 			result = get_empty(av[1]);
 		delete (&game);
 		game.visited = arr_visited(game.maph, game.mapw);

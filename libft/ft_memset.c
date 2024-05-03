@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zibnoukh <zibnoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 13:53:10 by zibnoukh          #+#    #+#             */
-/*   Updated: 2023/11/25 20:48:49 by zibnoukh         ###   ########.fr       */
+/*   Created: 2023/11/02 15:01:31 by zibnoukh          #+#    #+#             */
+/*   Updated: 2023/11/25 16:58:11 by zibnoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*p;
+	size_t			i;
 
-int		ft_strlen(const char *s);
-char	*ft_strdup(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	**ft_split(char const *s, char c);
-void	*ft_memset(void *s, int c, size_t n);
-
-#endif
+	p = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		p[i] = (unsigned char)c;
+		i++;
+	}
+	return (s);
+}

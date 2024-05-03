@@ -14,7 +14,7 @@ NAME=libft.a
 CC=cc
 CFLAGS=-Wall -Wextra -Werror
 RM=rm -f
-SRC =  ./ft_strlen.c ./ft_strdup.c ./ft_strjoin.c ./ft_split.c \
+SRC =  ./ft_strlen.c ./ft_memset.c ./ft_strdup.c ./ft_strjoin.c ./ft_split.c \
 
 OBJ = $(SRC:.c=.o)
 
